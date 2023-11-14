@@ -42,7 +42,9 @@
         console.log(document);
         console.log(window);
         const docOutput = JSON.stringify(document, null, 4);
-        const winOutput = JSON.stringify(window, null, 4); // Uncaught TypeError: Converting circular structure to JSON
+        const winOutput = window; // Uncaught TypeError: Converting circular structure to JSON
+
+        // const winOutput = JSON.stringify(window, null, 4); // Uncaught TypeError: Converting circular structure to JSON
 
         const docOutputElem = document.createTextNode(docOutput);
         const winOutputElem = document.createTextNode(winOutput);
@@ -56,7 +58,7 @@
 
         box.appendChild(docOutputElem);
 
-        boxnext.appendChild(winOutputElem);
+        boxNext.appendChild(winOutputElem);
 
     })()
 </script>
