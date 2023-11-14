@@ -25,5 +25,13 @@
 
 <script defer>
     console.log(document);
+    const docOutpput = JSON.stringify(document)
+    // remember: selector without css operator id or class
+    const box = document.getElementsByClassName('box').item(0);
+    console.log('docOutpput', docOutpput);
+    console.log('typeof(box)', typeof(box));
+    console.log('box', box);
+    
+    box.appendChild(docOutpput);
 </script>
 </html>
