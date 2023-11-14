@@ -37,11 +37,15 @@
 </style>
 
 <script defer>
+    const fStringify = (elem)  {
+        JSON.stringify(elem, null, 4);
+    }
+
     (function () { // IIFE - Immediately invoked function expression
 
         console.log(document);
         console.log(window);
-        const docOutput = JSON.stringify(document, null, 4);
+        const docOutput = fStringify(document)
         const winOutput = window; // Uncaught TypeError: Converting circular structure to JSON
 
         // const winOutput = JSON.stringify(window, null, 4); // Uncaught TypeError: Converting circular structure to JSON
