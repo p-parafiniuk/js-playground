@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
 
+<body>
     <br>
-    <div class="box">
-        Hellow world!
+    <div class="line">
+
+        <div class="box">
+            document
+        </div>
+
+        <div class="box">
+            window
+        </div>
     </div>
 </body>
 
 <style>
-.box {
-    display: flex;
-    width: 300px;
-    height: 700px;
-    border: 1px solid #ddd;
-}
+    .row {
+        display: flex;
+    }
+
+    .box {
+        display: flex;
+        /* width: 100%; */
+        /* height: 700px; */
+        border: 1px solid #ddd;
+        background-color: #eee;
+        white-space: pre;
+    }
 </style>
 
 <script defer>
-    console.log(document);
-    const docOutpput = JSON.stringify(document)
-    // remember: selector without css operator id or class
-    const box = document.getElementsByClassName('box').item(0);
-    console.log('docOutpput', docOutpput);
-    console.log('typeof(box)', typeof(box));
-    console.log('box', box);
-    
-    box.appendChild(docOutpput);
+    (function () {
+
+        console.log(document);
+        console.log(window);
+        const docOutput = JSON.stringify(document, null, 4);
+        const winOutput = JSON.stringify(window, null, 4);
+        const docOutputElem = document.createTextNode(docOutput);
+        const winOutputElem = document.createTextNode(winOutput);
+        // remember: selector without css operator id or class
+        const box = document.getElementsByClassName('box').item(0);
+        // const box = document.getElementsByClassName('box')
+        const boxNext = document.getElementsByClassName('box').item(1);
+        console.log('docOutpput', docOutput);
+        console.log('typeof(box)', typeof (box));
+        console.log('box', box);
+
+        box.appendChild(docOutputElem);
+
+        boxnext.appendChild(winOutputElem);
+
+    })()
 </script>
+
 </html>
