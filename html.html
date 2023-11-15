@@ -19,7 +19,7 @@
             window
         </div>
 
-        <div id="timeoutDemo1" class="box">
+        <div id="timeoutDemo1" class="box timeoutDemo1">
 
         </div>
 
@@ -30,7 +30,7 @@
     .row {
         display: flex;
     }
-
+    
     .box {
         display: flex;
         /* width: 100%; */
@@ -39,6 +39,13 @@
         background-color: #eee;
         white-space: pre;
     }
+
+    .timeoutDemo1 {
+        display: flex;
+        font-size: 72px;
+        font-family: monospace;
+    }
+
 </style>
 
 <script defer>
@@ -66,7 +73,18 @@
 
     const setTimeoutDemo1 = (elem) => {
         const demoSection = document.getElementById('timeoutDemo1');
-        demoSection.appendChild(document.createTextNode(0));
+        let i = 72
+        const intervalId = setInterval(() => {
+            demoSection.style.fontSize = `${i}px`;
+            i++;
+            if(i>200) {
+                i--;
+                clearInterval(intervalId)
+            }
+            console.log('i', i)
+        }, 1)
+        
+
     }
 
 
@@ -108,8 +126,8 @@
 
         boxNext.appendChild(winOutputElem);
 
-        // setTimeoutDemo1();
         showText('#timeoutDemo1', 1);
+        setTimeoutDemo1();
     })()
 </script>
 
