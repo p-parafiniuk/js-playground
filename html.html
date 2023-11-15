@@ -27,11 +27,18 @@
 </body>
 
 <style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
     .row {
         display: flex;
         margin-block: 16px;
     }
-    
+
     .box {
         display: flex;
         /* width: 100%; */
@@ -46,7 +53,6 @@
         font-size: 72px;
         font-family: monospace;
     }
-
 </style>
 
 <script defer>
@@ -78,13 +84,13 @@
         const intervalId = setInterval(() => {
             demoSection.style.fontSize = `${i}px`;
             i++;
-            if(i>200) {
+            if (i > 200) {
                 i--;
                 clearInterval(intervalId)
             }
             console.log('i', i)
         }, 1)
-        
+
 
     }
 
