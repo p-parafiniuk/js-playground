@@ -18,6 +18,11 @@
         <div class="box">
             window
         </div>
+
+        <div id="timeoutDemo1" class="box">
+
+        </div>
+
     </div>
 </body>
 
@@ -37,6 +42,34 @@
 </style>
 
 <script defer>
+    /// Helpers
+    const showText = (elementIdentifier, textValue) => {
+        let element;
+        console.log(elementIdentifier.length)
+        const fElementIdentifier = elementIdentifier.substring(1, elementIdentifier.length)
+
+        if (elementIdentifier[0] === '.') {
+            element = document.getElementByClassName(fElementIdentifier);
+        } if (elementIdentifier[0] === '#') {
+            element = document.getElementById(fElementIdentifier);
+        }
+        else {
+            console.error('Element identifier is neither class or id')
+            return;
+        }
+
+        // debugger
+        element.appendChild(document.createTextNode(textValue));
+    }
+
+
+
+    const setTimeoutDemo1 = (elem) => {
+        const demoSection = document.getElementById('timeoutDemo1');
+        demoSection.appendChild(document.createTextNode(0));
+    }
+
+
     const fStringify = (elem) => {
         return JSON.stringify(elem, null, 4);
     }
@@ -74,6 +107,8 @@
 
         boxNext.appendChild(winOutputElem);
 
+        // setTimeoutDemo1();
+        showText('#timeoutDemo1', 1);
     })()
 </script>
 
