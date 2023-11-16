@@ -17,6 +17,15 @@
         </div>
     </div>
 
+    <!-- HTML fragment like in react comp -->
+    <div class="row" style="background-color: #666;">
+        <div class="Card">
+            <h2 class="Card__Header">Longer header</h2>
+
+            <p class="Card__Content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem maiores, laudantium enim natus rerum saepe veniam a dolorem ea suscipit est aliquid, iusto accusamus exercitationem qui. Delectus, tenetur voluptates. Provident?</p>
+        </div>
+    </div>
+
     <br>
     <div class="row">
         <div class="box">
@@ -58,6 +67,24 @@
         padding-inline: 16px;
     }
 
+        /* Component like styles */
+    .Card {
+        padding: 8px 24px;
+        background-color: #ddd;
+    }
+
+    .Card__Header {
+        width: fit-content;
+        padding: 8px 32px;
+        margin-left: -32px;
+
+        border-bottom: 8px solid #C90;
+        background: #FFBF00        
+    }
+
+    .Card__Content {
+        
+    }
 
     /* Page styles */
     .box {
