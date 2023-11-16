@@ -8,14 +8,17 @@
 </head>
 
 <body>
-    <br>
-    <div class="line">
+
+    <div class="row col">
         <div class="HeroSection">
             <h1>Web playground</h1>
 
             <p>Test your plain HTML / CSS / JS skills in convicing way!</p>
         </div>
+    </div>
 
+    <br>
+    <div class="row">
         <div class="box">
             document
         </div>
@@ -44,6 +47,14 @@
         margin-block: 16px;
         padding-inline: 16px;
     }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        margin-block: 16px;
+        padding-inline: 16px;
+    }
+
 
     .box {
         margin-block: 16px;
