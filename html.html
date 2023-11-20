@@ -9,6 +9,12 @@
 
 <body>
 
+    <my-component>
+        <p>This is light DOM content. It's projected into the shadow DOM.</p>
+        <p>WRS renders this content as well as the shadow DOM content.</p>
+      </my-component>
+                  
+      
     <!-- test  -->
     <!-- <div class="green">
         <div class="flag">🚩</div>
@@ -209,6 +215,22 @@
         showText('#timeoutDemo1', 1);
         setTimeoutDemo1();
     })()
+
+  class MyComponent extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+      let p = document.createElement('p');
+      p.innerHTML = 'Hello World, this is shadow DOM content. Here comes the light DOM: <slot></slot>';
+      this.shadowRoot.appendChild(p);
+    }
+  }
+
+  window.customElements.define('my-component', MyComponent);
+
 </script>
 
 </html>
