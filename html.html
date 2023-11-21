@@ -33,40 +33,41 @@
         <div class="ball">⚽️</div>
       </div> -->
 
-    <div class="row col">
+    <!-- <div class="row col">
         <div class="HeroSection">
             <h1>Web playground</h1>
 
             <p>Test your plain HTML / CSS / JS skills in convicing way!</p>
         </div>
-    </div>
+    </div> -->
 
     <!-- HTML fragment like in react comp -->
     <div class="row" style="background-color: #666;">
         <div class="Card">
-            <h2 class="Card__Header">Longer header</h2>
+            <h2 class="Card__Header">Web dashboard</h2>
 
-            <p class="Card__Content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem maiores, laudantium
-                enim natus rerum saepe veniam a dolorem ea suscipit est aliquid, iusto accusamus exercitationem qui.
-                Delectus, tenetur voluptates. Provident?</p>
+            <p class="Card__Content">Test your plain HTML / CSS / JS skills in convicing way!</p>
+
+
+            <br>
+            <div class="row">
+                <div class="box">
+                    document
+                </div>
+        
+                <div class="box">
+                    window
+                </div>
+        
+                <div id="timeoutDemo1" class="box timeoutDemo1">
+        
+                </div>
+        
+            </div>
+        
         </div>
     </div>
 
-    <br>
-    <div class="row">
-        <div class="box">
-            document
-        </div>
-
-        <div class="box">
-            window
-        </div>
-
-        <div id="timeoutDemo1" class="box timeoutDemo1">
-
-        </div>
-
-    </div>
 </body>
 
 <style>
@@ -199,10 +200,7 @@
         console.log(navigator.userAgent);
     }
 
-    (function () { // IIFE - Immediately invoked function expression
-        logDefaults();
-        console.log(isGeologationAvailable())
-
+    const showDefaults = () => {
         const docOutput = fStringify(document)
         const winOutput = window; // Uncaught TypeError: Converting circular structure to JSON
 
@@ -221,8 +219,14 @@
         box.appendChild(docOutputElem);
 
         boxNext.appendChild(winOutputElem);
+    }
+
+    (function () { // IIFE - Immediately invoked function expression
+        logDefaults();
+        console.log(isGeologationAvailable())
 
         showText('#timeoutDemo1', 1);
+        showDefaults();
         setTimeoutDemo1();
     })()
 
