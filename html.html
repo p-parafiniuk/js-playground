@@ -3,9 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web playground</title>
     <meta name="robots" content="noindex" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="alternate" hreflang="x-default" href="https://root.com/">
+    <link rel="alternate" hreflang="pl-pl" href="https://root.com/pl-pl/">
+    <script
+        type="application/ld+json">{"@context":"https://schema.org/","@type":"Product","name":"name","image":[]],"brand":{"@type":"Thing","name":""},"offers":{"@type":"AggregateOffer","lowPrice":179,"highPrice":659,"priceCurrency":"PLN"}}</script>
 </head>
 
 <body>
@@ -13,9 +20,9 @@
     <my-component>
         <p>This is light DOM content. It's projected into the shadow DOM.</p>
         <p>WRS renders this content as well as the shadow DOM content.</p>
-      </my-component>
-                  
-      
+    </my-component>
+
+
     <!-- test  -->
     <!-- <div class="green">
         <div class="flag">🚩</div>
@@ -36,7 +43,9 @@
         <div class="Card">
             <h2 class="Card__Header">Longer header</h2>
 
-            <p class="Card__Content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem maiores, laudantium enim natus rerum saepe veniam a dolorem ea suscipit est aliquid, iusto accusamus exercitationem qui. Delectus, tenetur voluptates. Provident?</p>
+            <p class="Card__Content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem maiores, laudantium
+                enim natus rerum saepe veniam a dolorem ea suscipit est aliquid, iusto accusamus exercitationem qui.
+                Delectus, tenetur voluptates. Provident?</p>
         </div>
     </div>
 
@@ -58,8 +67,7 @@
 </body>
 
 <style>
-
-/* .green {
+    /* .green {
   position: absolute;
   inset: 50px;
 }
@@ -98,7 +106,7 @@
         padding-inline: 16px;
     }
 
-        /* Component like styles */
+    /* Component like styles */
     .Card {
         padding: 8px 24px;
         background-color: #ddd;
@@ -110,12 +118,10 @@
         margin-left: -32px;
 
         border-bottom: 8px solid #C90;
-        background: #FFBF00        
+        background: #FFBF00
     }
 
-    .Card__Content {
-        
-    }
+    .Card__Content {}
 
     /* Page styles */
     .box {
@@ -217,20 +223,20 @@
         setTimeoutDemo1();
     })()
 
-  class MyComponent extends HTMLElement {
-    constructor() {
-      super();
-      this.attachShadow({ mode: 'open' });
+    class MyComponent extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+        }
+
+        connectedCallback() {
+            let p = document.createElement('p');
+            p.innerHTML = 'Hello World, this is shadow DOM content. Here comes the light DOM: <slot></slot>';
+            this.shadowRoot.appendChild(p);
+        }
     }
 
-    connectedCallback() {
-      let p = document.createElement('p');
-      p.innerHTML = 'Hello World, this is shadow DOM content. Here comes the light DOM: <slot></slot>';
-      this.shadowRoot.appendChild(p);
-    }
-  }
-
-  window.customElements.define('my-component', MyComponent);
+    window.customElements.define('my-component', MyComponent);
 
 </script>
 
