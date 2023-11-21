@@ -222,7 +222,10 @@
     }
 
     function moveWindow() {
-        window.moveTo(450, 450)
+        window.moveTo(450, 450);
+        window.resizeTo(450, 450);
+        // not working feature not a bug
+        // https://stackoverflow.com/questions/7602078/javascripts-window-resizeto-isnt-working
     }
 
     (function () { // IIFE - Immediately invoked function expression
