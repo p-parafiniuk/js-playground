@@ -193,6 +193,8 @@
     const logDefaults = () => {
         console.log(document);
         console.log(window);
+        console.log(Object.keys(window));
+
         console.log(navigator);
         console.log(navigator.userAgent);
     }
@@ -218,13 +220,19 @@
         boxNext.appendChild(winOutputElem);
     }
 
+    function moveWindow() {
+        window.moveTo(450, 450)
+    }
+
     (function () { // IIFE - Immediately invoked function expression
         logDefaults();
         console.log(isGeologationAvailable())
+        moveWindow();
 
         showText('#timeoutDemo1', 1);
         showDefaults();
         setTimeoutDemo1();
+
     })()
 
     class MyComponent extends HTMLElement {
