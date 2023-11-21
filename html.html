@@ -12,7 +12,7 @@
     <link rel="alternate" hreflang="x-default" href="https://root.com/">
     <link rel="alternate" hreflang="pl-pl" href="https://root.com/pl-pl/">
 
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 
     <script
         type="application/ld+json">{"@context":"https://schema.org/","@type":"Product","name":"name","image":[]],"brand":{"@type":"Thing","name":""},"offers":{"@type":"AggregateOffer","lowPrice":179,"highPrice":659,"priceCurrency":"PLN"}}</script>
@@ -34,6 +34,7 @@
         </div>
     </div> -->
 
+    <log-component />
     <!-- HTML fragment like in react comp -->
     <div class="row" style="background-color: #666;">
         <div class="Card">
@@ -225,7 +226,7 @@
     }
 
     (function () { // IIFE - Immediately invoked function expression
-        logDefaults();
+        // logDefaults();
         console.log(isGeologationAvailable())
         moveWindow();
 
@@ -234,6 +235,30 @@
         setTimeoutDemo1();
 
     })()
+
+    class LogComponent extends HTMLElement {
+        constructor() {
+            super();
+            // this.attachShadow({ mode: 'open' });
+            this.logDefaults();
+
+        }
+
+        logDefaults() {
+            console.log('-- Defaults -- ');
+
+            console.log(document);
+            console.log(window);
+            console.log(Object.keys(window));
+
+            console.log(navigator);
+            console.log(navigator.userAgent);
+        }
+
+
+        // connectedCallback() {
+        // }
+    }
 
     class MyComponent extends HTMLElement {
         constructor() {
@@ -248,6 +273,7 @@
         }
     }
 
+    window.customElements.define('log-component', LogComponent);
     window.customElements.define('my-component', MyComponent);
 
 </script>
