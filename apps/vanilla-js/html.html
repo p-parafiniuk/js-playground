@@ -144,6 +144,11 @@
 </style>
 
 <script defer>
+    window.customFeatureFlags = {
+        logOn: false,
+        timeoutSizeDemo: false,
+    }
+
     /// Helpers
     const showText = (elementIdentifier, textValue) => {
         let element;
@@ -178,10 +183,23 @@
             }
             console.log('i', i)
         }, 1)
-
-
     }
 
+    /**
+     * @param {number} duration
+     * @return {Promise<void>}
+     */
+    async function sleep(duration) {
+        function then(fn) {
+            fn();
+        }
+
+        console.log('Hello!');
+        await setTimeout(() => { }, duration);
+        console.log('Bye!');
+
+        return this;
+    }
 
     const fStringify = (elem) => {
         return JSON.stringify(elem, null, 4);
@@ -230,12 +248,14 @@
 
     (function () { // IIFE - Immediately invoked function expression
         // logDefaults();
-        console.log(isGeologationAvailable())
-        moveWindow();
+        // console.log(isGeologationAvailable())
+        // moveWindow();
 
-        showText('#timeoutDemo1', 1);
+        if (window.customFeatureFlags.timeoutSizeDemo) {
+            showText('#timeoutDemo1', 1);
+            setTimeoutDemo1();
+        }
         showDefaults();
-        setTimeoutDemo1();
 
     })()
 
@@ -243,8 +263,9 @@
         constructor() {
             super();
             // this.attachShadow({ mode: 'open' });
-            this.logDefaults();
-
+            if (window.customFeatureFlags.logOn) {
+                this.logDefaults();
+            }
         }
 
         logDefaults() {
