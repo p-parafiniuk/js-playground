@@ -1,6 +1,6 @@
 'use client';
-import { useState } from "react";
-import { Code } from '@mantine/core';
+import { useState, useId } from "react";
+import { Accordion, Code } from '@mantine/core';
 
 export default function WebDashboard() {
   const [a, setA] = useState(1)
@@ -27,21 +27,27 @@ function DocumentValues() {
       <p> Window inner + outer width: {windowInnerWidth + windowOuterWidth}px</p>
 
 
-      <CodeWithAnswer code={'react.off'} answer={'react.off'}></CodeWithAnswer>
+      <CodeWithAnswer title='question 1' code={'react.off'} answer={'react.off'}></CodeWithAnswer>
     </>
   )
 }
 
 // function CodeWithAnswer({code: string, answer: string}) {
 
-function CodeWithAnswer({ code, answer }) {
-  const clientWidth = document.documentElement.clientWidth;
+function CodeWithAnswer({ title, code, answer }) {
+  const itemId = useId();
 
   return (
     <>
       <Code>{code}</Code>;
 
-      {answer}
+      <Accordion variant="separated" radius="md" defaultValue="Apples">
+        <Accordion.Item key={itemId} value={title}>
+          <Accordion.Control>{title}</Accordion.Control>
+          <Accordion.Panel>{answer}</Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
+
     </>
   )
 }
