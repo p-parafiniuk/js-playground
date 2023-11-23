@@ -143,11 +143,61 @@
     }
 </style>
 
-<script defer>
+
+<script>
+    // Globals
     window.customFeatureFlags = {
         logOn: false,
         timeoutSizeDemo: false,
     }
+
+    class LogComponent extends HTMLElement {
+        constructor() {
+            super();
+            // this.attachShadow({ mode: 'open' });
+            if (window.customFeatureFlags.logOn) {
+                this.logDefaults();
+            }
+        }
+
+        logDefaults() {
+            console.log('-- Defaults -- ');
+
+            console.log(document);
+            console.log(window);
+            console.log(Object.keys(window));
+
+            console.log(navigator);
+            console.log(navigator.userAgent);
+        }
+
+
+        // connectedCallback() {
+        // }
+    }
+
+    class MyComponent extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+        }
+
+        connectedCallback() {
+            let p = document.createElement('p');
+            p.innerHTML = 'Hello World, this is shadow DOM content. Here comes the light DOM: <slot></slot>';
+            this.shadowRoot.appendChild(p);
+        }
+    }
+
+    window.customElements.define('log-component', LogComponent);
+    window.customElements.define('my-component', MyComponent);
+
+
+
+</script>
+
+<script>
+
 
     /// Helpers
     const showText = (elementIdentifier, textValue) => {
@@ -246,6 +296,11 @@
         // https://stackoverflow.com/questions/7602078/javascripts-window-resizeto-isnt-working
     }
 
+
+</script>
+
+<script>
+    // fn to behave like main()
     (function () { // IIFE - Immediately invoked function expression
         // logDefaults();
         // console.log(isGeologationAvailable())
@@ -258,47 +313,6 @@
         showDefaults();
 
     })()
-
-    class LogComponent extends HTMLElement {
-        constructor() {
-            super();
-            // this.attachShadow({ mode: 'open' });
-            if (window.customFeatureFlags.logOn) {
-                this.logDefaults();
-            }
-        }
-
-        logDefaults() {
-            console.log('-- Defaults -- ');
-
-            console.log(document);
-            console.log(window);
-            console.log(Object.keys(window));
-
-            console.log(navigator);
-            console.log(navigator.userAgent);
-        }
-
-
-        // connectedCallback() {
-        // }
-    }
-
-    class MyComponent extends HTMLElement {
-        constructor() {
-            super();
-            this.attachShadow({ mode: 'open' });
-        }
-
-        connectedCallback() {
-            let p = document.createElement('p');
-            p.innerHTML = 'Hello World, this is shadow DOM content. Here comes the light DOM: <slot></slot>';
-            this.shadowRoot.appendChild(p);
-        }
-    }
-
-    window.customElements.define('log-component', LogComponent);
-    window.customElements.define('my-component', MyComponent);
 
 </script>
 
