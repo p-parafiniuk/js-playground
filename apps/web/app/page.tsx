@@ -1,16 +1,32 @@
 'use client';
 import { useState } from "react";
 
-export default function Button() {
+export default function WebDashboard() {
   const [a, setA] = useState(1) 
 
   return (
     <>
      <p> pov {a}</p>
+
+     <DocumentValues></DocumentValues>
     </>
   )
 }
 
+function DocumentValues() {
+  // const [a, setA] = useState(1) 
+  const clientWidth = document.documentElement.clientWidth; /* 1200 */
+  const windowInnerWidth = window.innerWidth; /* 1200 */
+  const windowOuterWidth = window.outerWidth; /* 1200 */
+
+  return (
+    <>
+     <p> Client width: {clientWidth}px</p>
+     <p> Window inner width: {clientWidth}px</p>
+     <p> Window outer width: {clientWidth}px</p>
+    </>
+  )
+}
 
 
 
