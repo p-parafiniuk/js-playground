@@ -14,10 +14,7 @@
 
 <body>
 
-    <nav>
-        <a href="index.html">Home</a>
-    </nav>
-
+    <NavigationComponent></NavigationComponent>
     <!-- HTML fragment like in react comp -->
     <div class="row" style="background-color: #666;">
         <div class="Card">
@@ -39,7 +36,6 @@
 </body>
 
 <style>
-
     /* Component like styles */
     .Card {
         padding: 8px 24px;
@@ -74,40 +70,6 @@
         font-family: monospace;
     }
 </style>
-
-
-<script>
-
-    class LogComponent extends HTMLElement {
-        constructor() {
-            super();
-            // this.attachShadow({ mode: 'open' });
-            if (window.customFeatureFlags.logOn) {
-                this.logDefaults();
-            }
-        }
-
-        logDefaults() {
-            console.log('-- Defaults -- ');
-
-            console.log(document);
-            console.log(window);
-            console.log(Object.keys(window));
-
-            console.log(navigator);
-            console.log(navigator.userAgent);
-        }
-
-
-        // connectedCallback() {
-        // }
-    }
-
-    window.customElements.define('my-component', MyComponent);
-
-
-
-</script>
 
 <script>
 
