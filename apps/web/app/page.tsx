@@ -22,8 +22,8 @@ function DocumentValues() {
   return (
     <>
      <p> Client width: {clientWidth}px</p>
-     <p> Window inner width: {clientWidth}px</p>
-     <p> Window outer width: {clientWidth}px</p>
+     <p> Window inner width: {windowInnerWidth}px</p>
+     <p> Window outer width: {windowOuterWidth}px</p>
     </>
   )
 }
