@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web playground - Scripts</title>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <nav>
+        <a href="html.html">Home</a>
+    </nav>
+
+    <!-- HTML fragment like in react comp -->
+    <div class="row" style="background-color: #666;">
+        <div class="Card">
+            <h2 class="Card__Header">Web dashboard</h2>
+
+            <p class="Card__Content">Test your plain HTML / CSS / JS skills in convicing way!</p>
+
+            <br>
+            <div class="row">
+                <div class="box">
+                    window
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<style>
+    /* global style */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+
+    /* Grid styles */
+    .row {
+        display: flex;
+        margin-block: 16px;
+        padding-inline: 16px;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        margin-block: 16px;
+        padding-inline: 16px;
+    }
+
+    /* Component like styles */
+    .Card {
+        padding: 8px 24px;
+        background-color: #ddd;
+    }
+
+    .Card__Header {
+        width: fit-content;
+        padding: 8px 32px;
+        margin-left: -32px;
+
+        border-bottom: 8px solid #C90;
+        background: #FFBF00
+    }
+
+    .Card__Content {}
+
+    /* Page styles */
+    .box {
+        margin-block: 16px;
+        display: flex;
+        /* width: 100%; */
+        /* height: 700px; */
+        border: 1px solid #ddd;
+        background-color: #eee;
+        white-space: pre;
+    }
+
+    .timeoutDemo1 {
+        display: flex;
+        font-size: 72px;
+        font-family: monospace;
+    }
+</style>
+
+
+<script>
+    // Globals
+    window.customFeatureFlags = {
+        logOn: false,
+        timeoutSizeDemo: false,
+    }
+
+    class LogComponent extends HTMLElement {
+        constructor() {
+            super();
+            // this.attachShadow({ mode: 'open' });
+            if (window.customFeatureFlags.logOn) {
+                this.logDefaults();
+            }
+        }
+
+        logDefaults() {
+            console.log('-- Defaults -- ');
+
+            console.log(document);
+            console.log(window);
+            console.log(Object.keys(window));
+
+            console.log(navigator);
+            console.log(navigator.userAgent);
+        }
+
+
+        // connectedCallback() {
+        // }
+    }
+
+    window.customElements.define('my-component', MyComponent);
+
+
+
+</script>
+
+<script>
+
+
+
+
+</script>
+
+<script>
+    // fn to behave like main()
+    (function () { // IIFE - Immediately invoked function expression
+        if (window.customFeatureFlags.timeoutSizeDemo) {
+
+        }
+    })()
+
+</script>
+
+</html>
