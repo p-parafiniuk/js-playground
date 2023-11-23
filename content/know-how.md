@@ -1,5 +1,6 @@
 Resource
 https://www.greatfrontend.com/behavioral-interview-guidebook/growth-mindset#continued-learning
+https://ckarchive.com/b/v8u3hrhxmv2eealq229q5szrzkmll?ck_subscriber_id=1744247336
 
 
 // future articles or knowboxes to CMS
