@@ -1,33 +1,54 @@
 'use client';
 import { useState } from "react";
+import { Code } from '@mantine/core';
 
 export default function WebDashboard() {
-  const [a, setA] = useState(1) 
+  const [a, setA] = useState(1)
 
   return (
     <>
-     <p> pov {a}</p>
+      <p> pov {a}</p>
 
-     <DocumentValues></DocumentValues>
+      <DocumentValues></DocumentValues>
     </>
   )
 }
 
 function DocumentValues() {
-  // const [a, setA] = useState(1) 
-  const clientWidth = document.documentElement.clientWidth; /* 1200 */
-  const windowInnerWidth = window.innerWidth; /* 1200 */
-  const windowOuterWidth = window.outerWidth; /* 1200 */
+  const clientWidth = document.documentElement.clientWidth;
+  const windowInnerWidth = window.innerWidth;
+  const windowOuterWidth = window.outerWidth;
 
   return (
     <>
-     <p> Client width: {clientWidth}px</p>
-     <p> Window inner width: {windowInnerWidth}px</p>
-     <p> Window outer width: {windowOuterWidth}px</p>
-     <p> Window inner + outer width: {windowInnerWidth + windowOuterWidth}px</p>
+      <p> Client width: {clientWidth}px</p>
+      <p> Window inner width: {windowInnerWidth}px</p>
+      <p> Window outer width: {windowOuterWidth}px</p>
+      <p> Window inner + outer width: {windowInnerWidth + windowOuterWidth}px</p>
+
+
+      <CodeWithAnswer code={'react.off'} answer={'react.off'}></CodeWithAnswer>
     </>
   )
 }
+
+// function CodeWithAnswer({code: string, answer: string}) {
+
+function CodeWithAnswer({ code, answer }) {
+  const clientWidth = document.documentElement.clientWidth;
+
+  return (
+    <>
+      <Code>{code}</Code>;
+
+      {answer}
+    </>
+  )
+}
+
+// TODO
+// https://typescript.tv/best-practices/improve-your-type-safety-with-branded-types/
+// https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx
 
 
 
