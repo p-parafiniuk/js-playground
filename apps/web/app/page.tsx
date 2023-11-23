@@ -1,6 +1,11 @@
 'use client';
 import { useState, useId } from "react";
+
+// mantine comps
 import { Accordion, Code } from '@mantine/core';
+
+// custom comps
+import { Todo } from "@repo/ui/todo";
 
 export default function WebDashboard() {
   const [a, setA] = useState(1)
@@ -39,6 +44,8 @@ function CodeWithAnswer({ title, code, answer }) {
 
   return (
     <>
+<Todo ></Todo>
+
       <Code>{code}</Code>;
 
       <Accordion variant="separated" radius="md" defaultValue="Apples">
@@ -57,7 +64,7 @@ function CodeWithAnswer({ title, code, answer }) {
 // https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx
 
 
-
+// left overs from initial installation to reuse if anything useful
 
 // import Image from "next/image";
 // import { Card } from "@repo/ui/card";
