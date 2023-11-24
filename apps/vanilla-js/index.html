@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <script src="js/globals.js"></script>
-    <script src="js/webcomponents/nav/nav-component.js"></script>
     <!-- <base href="/"> -->
 
     <link rel="alternate" hreflang="x-default" href="https://root.com/">
@@ -221,7 +220,7 @@
      * @param {number} duration
      * @return {Promise<void>}
      */
-     function sleep(duration) {
+    function sleep(duration) {
         function ben(fn) {
             return fn();
         }
@@ -285,6 +284,14 @@
 </script>
 
 <script>
+    /**
+     * @param {number} duration
+     * @return {Promise<void>}
+     */
+    async function sleep(duration) {
+        return new Promise(resolve => setTimeout(resolve, duration));
+    }
+
     // fn to behave like main()
     (function () { // IIFE - Immediately invoked function expression
         // logDefaults();
@@ -307,8 +314,17 @@
         // // console.log('Hello!');
         // // console.log('Bye!');
         // greeting();
+
+        async function greeting() {
+            console.log('Hello!');
+            await sleep(2000);
+            console.log('Bye.'); // Only logs after 2000 milliseconds (2 seconds)
+        }
+
+        greeting();
     })()
 
 </script>
+<script defer src="js/webcomponents/nav/nav-component.js"></script>
 
 </html>

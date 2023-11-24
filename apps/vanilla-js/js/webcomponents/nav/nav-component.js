@@ -1,13 +1,17 @@
 // fetch("/apps/vanilla-js/js/webcomponents/nav/template.html")
 
 // const url = "./template.html";
-const url = "js/webcomponents/nav/template.html";
+const url = "./js/webcomponents/nav/template.html";
 
 fetch(url, {
     mode: "no-cors"
 })
-// .then(stream => {debugger; stream.text()})
-.then(stream => {stream.text()})
+    .then(stream => stream.text())
+    // .then(stream => {debugger; return stream.text()})
+    // .then(text => {debugger;})
+    // .then(text => console.log('text', text))
+    // .then(text => {debugger; return define(text)});
+
     .then(text => define(text));
 
 function define(html) {
@@ -22,9 +26,9 @@ function define(html) {
             // shadowRoot.appendChild(template.cloneNode(true));
 
             const shadowRoot = this.attachShadow({ mode: "open" });
-            shadowRoot.appendChild(html);
-
-            // shadowRoot.innerHTML =  html;
+            // shadowRoot.appendChild(html);
+            // debugger;
+            shadowRoot.innerHTML =  html;
         }
 
         connectedCallback() {
