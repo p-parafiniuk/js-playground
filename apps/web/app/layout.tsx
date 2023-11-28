@@ -1,8 +1,11 @@
+'use client';
 import "./globals.css";
+import { useDisclosure } from '@mantine/hooks';
+import { ColorSchemeScript, MantineProvider, createTheme, AppShell, Burger, Group, Skeleton  } from '@mantine/core';
+// import { MantineLogo } from '@mantine/ds';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ColorSchemeScript } from '@mantine/core';
-import { MantineProvider, createTheme } from '@mantine/core';
+
 // core styles are required for all packages
 import '@mantine/core/styles.css';
 
@@ -19,7 +22,7 @@ const theme = createTheme({
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Web playground 0.02",
   description: "Web playground, a place to growth your frontend skills",
 };
@@ -42,10 +45,53 @@ export default function RootLayout({
 
       <body className={inter.className}>
         <MantineProvider theme={theme}>
-          {children}
+          {/* {children} */}
+
+          <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
         </MantineProvider>
 
       </body>
     </html>
+  );
+}
+
+
+export function ResponsiveSizesAppShell({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [opened, handlers] = useDisclosure(false);
+  // const [opened, { toggle }] = useDisclosure();
+
+
+  // {Array(15)
+  //   .fill(0)
+  //   .map((_, index) => (
+  //     <Skeleton key={index} h={28} mt="sm" animate={false} />
+  //   ))}
+
+  return (
+    <AppShell
+      header={{ height: { base: 60, md: 70, lg: 80 } }}
+      navbar={{
+        width: { base: 200, md: 300, lg: 400 },
+        breakpoint: 'sm',
+        collapsed: { mobile: !opened },
+      }}
+      padding="md"
+    >
+      <AppShell.Header>
+        <Group h="100%" px="md">
+          <Burger opened={opened} onClick={handlers.toggle} hiddenFrom="sm" size="sm" />
+          {/* <MantineLogo size={30} /> */}
+        </Group>
+      </AppShell.Header>
+      <AppShell.Navbar p="md">
+        Navbar
+        {children}
+      </AppShell.Navbar>
+      <AppShell.Main>Main</AppShell.Main>
+    </AppShell>
   );
 }
