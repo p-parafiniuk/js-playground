@@ -1,7 +1,7 @@
 'use client';
 import "./globals.css";
 import { useDisclosure } from '@mantine/hooks';
-import { ColorSchemeScript, MantineProvider, createTheme, AppShell, Burger, Group, Skeleton  } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider, createTheme, AppShell, Burger, Group, Skeleton } from '@mantine/core';
 // import { MantineLogo } from '@mantine/ds';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -38,7 +38,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My awesome app</title>
+        <title>Web playground - React</title>
 
         <ColorSchemeScript />
       </head>
@@ -89,9 +89,8 @@ export function ResponsiveSizesAppShell({
       </AppShell.Header>
       <AppShell.Navbar p="md">
         Navbar
-        {children}
       </AppShell.Navbar>
-      <AppShell.Main>Main</AppShell.Main>
+      <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
 }
