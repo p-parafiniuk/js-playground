@@ -5,9 +5,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Web playground - SEO</title>
-    <meta name="robots" content="noindex" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- 
+        Default Metatags
+        https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta?retiredLocale=pl
+
+        metadata that cannot be represented by other HTML meta-related elements, 
+        like <base>, <link>, <script>, <style> or <title>.
+    -->
+    <meta name="robots" content="noindex" />
+
+
+    <!-- 
+        Length: 
+        - Search engines tend to truncate meta descriptions to around 155 characters. 
+            It’s best to write meta descriptions 
+            between 150–300 characters in length. 
+
+            On some SERPs, you’ll notice that Google gives much more real estate to the descriptions of some pages. T
+        his usually happens for web pages ranking right below a featured snippet.
+     -->
+    <meta name="description" content="">
 
     <!-- 
         Canonical rules
@@ -25,12 +47,20 @@
         - via http headers
         - XML sitemap
         - or all above
+
+        Tips
+        - 
      -->
      <link rel="alternate" hreflang="lang_code | x-default" href="absolute_root/lang_code">
 
      <!-- enable to check redirect using meta tags -->
     <!-- <meta http-equiv="refresh" content="5; URL=https://www.example.com/new-page.html">  
 	<title>Redirecting to New Page</title>   -->
+
+    <!-- 
+        Interesting bits 
+        http-equiv.set-cookie is only suppoered in Opera and Safari 
+    -->
 
     <link rel="stylesheet" type="text/css" href="../css/global.css">
     <script src="../js/globals.js"></script>
