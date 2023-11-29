@@ -5,24 +5,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Web playground - SEO</title>
-    
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     <!-- 
         Default Metatags
+        https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag#directives
         https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta?retiredLocale=pl
 
         metadata that cannot be represented by other HTML meta-related elements, 
         like <base>, <link>, <script>, <style> or <title>.
 
         noindex - To not show this page in search results (SERP)
+        Common use cases include 
+         - settings pages, 
+         - internal search pages, 
+         - policies, 
+         and more.
         nofollow - To not follow links on this page.
     -->
     <meta name="robots" content="noindex" />
     <meta name="robots" content="noindex,nofollow" />
     <meta name="robots" content="all" />
+    <meta name="googlebot" content="noindex,nofollow" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <!-- don't want them to provide a translation for this page. -->
+    <meta name="google" content="notranslate" />
+    <!-- nextjs tip: To avoid duplicate tags in your head you can use the key property, 
+         which will make sure the tag is only rendered once. -->
+    <meta name="google" content="notranslate" key="notranslate" />
+
 
     <!-- 
         Length: 
@@ -42,7 +56,8 @@
         - only use absolute URLs in canonical tags
      -->
     <link rel="canonical" href="https://www.example.com/new-page.html" />
-    
+    <link rel="canonical" href="https://www.example.com/new-page.html" key="canonical" />
+
     <!-- 
         Hreflink - indicate page's target lang and region
         
@@ -55,9 +70,9 @@
         Tips
         - 
      -->
-     <link rel="alternate" hreflang="lang_code | x-default" href="absolute_root/lang_code">
+    <link rel="alternate" hreflang="lang_code | x-default" href="absolute_root/lang_code">
 
-     <!-- enable to check redirect using meta tags -->
+    <!-- enable to check redirect using meta tags -->
     <!-- <meta http-equiv="refresh" content="5; URL=https://www.example.com/new-page.html">  
 	<title>Redirecting to New Page</title>   -->
 
@@ -66,15 +81,18 @@
         http-equiv.set-cookie is only suppoered in Opera and Safari 
     -->
 
+
+    <meta key="og:image" property="og:image" content="" />
+
     <link rel="stylesheet" type="text/css" href="../css/global.css">
     <script src="../js/globals.js"></script>
 </head>
 
 <body>
-	<!-- <p>Please wait, you are being redirected to a new page...</p>   -->
+    <!-- <p>Please wait, you are being redirected to a new page...</p>   -->
 
     <!-- <NavigationComponent></NavigationComponent> -->
-    
+
     <!-- HTML fragment like in react comp -->
     <div class="row" style="background-color: #666;">
         <div class="Card">
@@ -86,12 +104,12 @@
             <div class="row">
                 <div class="box">
                     <script defer>
-JSON.stringify(document.head)
-console.log(JSON.stringify(document.head));
-document.querySelector('meta[name="description"]').content
+                        JSON.stringify(document.head)
+                        console.log(JSON.stringify(document.head));
+                        document.querySelector('meta[name="description"]').content
 
                     </script>
-                    
+
                 </div>
 
             </div>
@@ -145,12 +163,12 @@ document.querySelector('meta[name="description"]').content
 </script>
 
 <script>
-    // fn to behave like main()
-    (function () { // IIFE - Immediately invoked function expression
-        if (window.customFeatureFlags.timeoutSizeDemo) {
+        // fn to behave like main()
+        (function () { // IIFE - Immediately invoked function expression
+            if (window.customFeatureFlags.timeoutSizeDemo) {
 
-        }
-    })()
+            }
+        })()
 
 </script>
 
