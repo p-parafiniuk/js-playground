@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web playground - Scripts</title>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <script src="../js/globals.js"></script>
+</head>
+
+<body>
+
+    <NavigationComponent></NavigationComponent>
+    <!-- HTML fragment like in react comp -->
+    <div class="row" style="background-color: #666;">
+        <div class="Card">
+            <h2 class="Card__Header">Web dashboard</h2>
+
+            <p class="Card__Content">Test your plain HTML / CSS / JS skills in convicing way!</p>
+
+            <br>
+            <div class="row">
+                <div class="box">
+                    window
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<style>
+    /* Component like styles */
+    .Card {
+        padding: 8px 24px;
+        background-color: #ddd;
+    }
+
+    .Card__Header {
+        width: fit-content;
+        padding: 8px 32px;
+        margin-left: -32px;
+
+        border-bottom: 8px solid #C90;
+        background: #FFBF00
+    }
+
+    .Card__Content {}
+
+    /* Page styles */
+    .box {
+        margin-block: 16px;
+        display: flex;
+        /* width: 100%; */
+        /* height: 700px; */
+        border: 1px solid #ddd;
+        background-color: #eee;
+        white-space: pre;
+    }
+
+    .timeoutDemo1 {
+        display: flex;
+        font-size: 72px;
+        font-family: monospace;
+    }
+</style>
+
+<script>
+
+
+
+
+</script>
+
+<script>
+    // fn to behave like main()
+    (function () { // IIFE - Immediately invoked function expression
+        if (window.customFeatureFlags.timeoutSizeDemo) {
+
+        }
+    })()
+
+</script>
+
+</html>
