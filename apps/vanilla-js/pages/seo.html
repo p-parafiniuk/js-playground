@@ -18,7 +18,8 @@
         like <base>, <link>, <script>, <style> or <title>.
     -->
     <meta name="robots" content="noindex" />
-
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="robots" content="all" />
 
     <!-- 
         Length: 
@@ -81,7 +82,13 @@
             <br>
             <div class="row">
                 <div class="box">
-                    window
+                    <script defer>
+JSON.stringify(document.head)
+console.log(JSON.stringify(document.head));
+document.querySelector('meta[name="description"]').content
+
+                    </script>
+                    
                 </div>
 
             </div>
