@@ -17,6 +17,7 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.2",
     "@repo/eslint-config": "workspace:*",
+    "@repo/cms": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/eslint": "^8.44.7",
     "@types/node": "^17.0.12",

@@ -7,6 +7,9 @@ import { Accordion, Code } from '@mantine/core';
 // custom comps
 import { Todo } from "@repo/ui/todo";
 
+// import { customFetcher } from "@repo/cms/contentful/facade.ts";
+import { client } from './lib/cms.ts';
+
 export default function WebDashboard() {
   const [a, setA] = useState(1)
 
@@ -19,13 +22,39 @@ export default function WebDashboard() {
   )
 }
 
+
 function DocumentValues() {
   const clientWidth = document.documentElement.clientWidth;
   const windowInnerWidth = window.innerWidth;
   const windowOuterWidth = window.outerWidth;
+  const spaceId = process.env.CONTENTFUL_SPACE_ID
+  console.log('process.env', process)
+  console.log('process.env.CONTENTFUL_SPACE_ID', process.env.CONTENTFUL_SPACE_ID)
+  console.log('process.env.custom', process.env.customKey);
+  
+  const data = client.getEntry(
+    '3t7Iub6Arm23Cn7wWkIJTd'
+  ).then((data) => {
+    console.log('data', data)
+  }).catch((err) => {
+    console.error('err', err)
+  })
+  // const data = customFetcher()
+
+
+  // const data = client.getEntries({
+  //   content_type: 'testPostModel'
+  // }).then((data) => {
+  //   console.log('data', data)
+  // }).catch((err) => {
+  //   console.error('err', err)
+  // })
+  // // const data = customFetcher()
 
   return (
     <>
+
+      spaceId {spaceId ?? '0'}
       <p> Client width: {clientWidth}px</p>
       <p> Window inner width: {windowInnerWidth}px</p>
       <p> Window outer width: {windowOuterWidth}px</p>
