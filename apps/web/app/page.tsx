@@ -1,5 +1,6 @@
 'use client';
 import { useState, useId } from "react";
+import styles from "./page.module.css";
 
 // mantine comps
 import { Accordion, Code } from '@mantine/core';
@@ -59,7 +60,7 @@ function DocumentValues() {
       <p> Window inner width: {windowInnerWidth}px</p>
       <p> Window outer width: {windowOuterWidth}px</p>
       <p> Window inner + outer width: {windowInnerWidth + windowOuterWidth}px</p>
-
+      <button className={styles.button}>Add</button>
 
       <CodeWithAnswer title='question 1' code={'react.off'} answer={'react.off'}></CodeWithAnswer>
     </>
