@@ -2,6 +2,8 @@
 import React, { useState, useId } from "react";
 import styles from "./page.module.css";
 
+import clsx from 'clsx';
+
 // mantine comps
 import { Accordion, Code } from '@mantine/core';
 

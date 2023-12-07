@@ -85,6 +85,9 @@ importers:
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
       contentful:
         specifier: ^10.6.12
         version: 10.6.12
@@ -178,6 +181,9 @@ importers:
 
   packages/ui:
     dependencies:
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
       next:
         specifier: ^14.0.2
         version: 14.0.2(react-dom@18.2.0)(react@18.2.0)
