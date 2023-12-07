@@ -29,20 +29,22 @@ export default function TestPerfDashboard() {
     </>
   )
 }
+// helpers
+function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
+
 
 function HeadValues() {
   const docType = document.doctype
-  const windowInnerWidth = window.innerWidth;
-  const windowOuterWidth = window.outerWidth;
-  // const booleanExists = (expr) => {
-  //   return !!expr 
-  // }
-
-  const booleanEmoji = (expr: T) => !!expr ? <>✅</> : <>❌</>;
+  const elements = [
+    {
+      attribute: 'Doc type exists',
+      value: booleanEmoji(docType)
+    }
+  ]
 
   return (
     <>
-      <p> Doc type exists: {booleanEmoji(docType)}</p>
+      <SimpleTable elements={elements}></SimpleTable>
     </>
   )
 }
