@@ -29,9 +29,13 @@ export default function JsDashboard() {
   return (
     <>
       <h2>Learn JS </h2>
+      <hr />
+      {`--> Read (his)story <--`}
 
+      <br />  <br />  
+      <h3>NaN (not a number)</h3>
+      <p>so why you are so crazy JS?</p>
 
-      <h3>NaN (not a number)</h3><hr />
       <HighlightSummary>
         NaN === NaN // {result.toString()}
         <br />
