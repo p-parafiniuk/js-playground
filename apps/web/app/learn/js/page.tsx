@@ -30,10 +30,12 @@ export default function JsDashboard() {
     <>
       <h2>Learn JS </h2>
 
+
+      <h3>NaN (not a number)</h3><hr />
       <HighlightSummary>
-        NaN === NaN // {result.toString()} 
+        NaN === NaN // {result.toString()}
         <br />
-        typeof(NaN) // {typeof(NaN)}
+        typeof(NaN) // {typeof (NaN)}
       </HighlightSummary>
     </>
   )
