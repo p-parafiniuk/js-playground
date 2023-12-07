@@ -65,6 +65,9 @@ export function ResponsiveSizesAppShell({
   const links: NavProps = [{
     path: '/js',
     label: 'JavaScript'
+  }, {
+    path: '/test-page',
+    label: 'Checklists test'
   }]
 
   return (
