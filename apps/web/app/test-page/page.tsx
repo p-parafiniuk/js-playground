@@ -16,10 +16,16 @@ export default function TestPerfDashboard() {
 
   return (
     <>
-      <p> state(a): {a}</p>
-
+      <h2>Document </h2>
       <SizeValues></SizeValues>
+
+      <br /><br />
+      <h2>{'<head> values'}</h2>
       <HeadValues></HeadValues>
+
+      <br /><br />
+      <h2>React</h2>
+      <p> state(a): {a}</p>
     </>
   )
 }
@@ -32,7 +38,7 @@ function HeadValues() {
   //   return !!expr 
   // }
 
-  const booleanEmoji = (expr: T) => !!expr ? <>✅</>: <>❌</>;
+  const booleanEmoji = (expr: T) => !!expr ? <>✅</> : <>❌</>;
 
   return (
     <>
@@ -44,13 +50,31 @@ function HeadValues() {
 
 
 function SizeValues() {
-  const clientWidth = document.documentElement.clientWidth;
+  // More 
+  // https://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window
+
+  const documentElement = document.documentElement
   const windowInnerWidth = window.innerWidth;
   const windowOuterWidth = window.outerWidth;
 
+  const screen = window.screen;
+  const elements = [
+    {
+      attribute: 'Client size',
+      value: `${documentElement.clientWidth} x ${documentElement.clientHeight}`
+    },
+
+    {
+      attribute: 'Screen size',
+      value: `${screen.width} x ${screen.height}`
+    }
+
+  ]
+
   return (
     <>
-      <p> Client width: {clientWidth}px</p>
+      <SimpleTable elements={elements}></SimpleTable>
+
       <p> Window inner width: {windowInnerWidth}px</p>
       <p> Window outer width: {windowOuterWidth}px</p>
       <p> Window inner + outer width: {windowInnerWidth + windowOuterWidth}px</p>
@@ -58,3 +82,27 @@ function SizeValues() {
   )
 }
 
+import { Table } from '@mantine/core';
+
+// type Attr
+
+function SimpleTable({ elements }) {
+  const rows = elements.map((element) => (
+    <Table.Tr key={element.attribute}>
+      <Table.Td>{element.attribute}</Table.Td>
+      <Table.Td>{element.value}</Table.Td>
+    </Table.Tr>
+  ));
+
+  return (
+    <Table>
+      <Table.Thead>
+        <Table.Tr>
+          <Table.Th>Attribute</Table.Th>
+          <Table.Th>Value</Table.Th>
+        </Table.Tr>
+      </Table.Thead>
+      <Table.Tbody>{rows}</Table.Tbody>
+    </Table>
+  );
+}
