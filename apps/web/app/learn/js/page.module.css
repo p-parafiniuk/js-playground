@@ -1,10 +1,12 @@
 .hightlightSummary {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: 600;
+
     border: 2px solid yellow;
     background: white;
     padding-block: 4px;
     padding-inline: 8px;
-    font-size: 16px;
-    font-weight: 600;
     color: black;
     border-radius: 4px;
 }
