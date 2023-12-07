@@ -60,15 +60,22 @@ export function ResponsiveSizesAppShell({
   children: React.ReactNode;
 }) {
   const [opened, handlers] = useDisclosure(false);
+  // alternative
   // const [opened, { toggle }] = useDisclosure();
 
-  const links: NavProps = [{
-    path: '/js',
-    label: 'JavaScript'
-  }, {
-    path: '/test-page',
-    label: 'Checklists test'
-  }]
+  const links: NavProps = [
+    {
+      path: '/',
+      label: 'Home'
+    },
+    {
+      path: '/js',
+      label: 'JavaScript'
+    },
+    {
+      path: '/test-page',
+      label: 'Checklists test'
+    }]
 
   return (
     <AppShell
