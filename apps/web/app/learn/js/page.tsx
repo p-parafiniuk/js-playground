@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useId } from "react";
-// import styles from "./page.module.css";
-
+import styles from "./page.module.css";
 import clsx from 'clsx';
 
 // mantine comps
@@ -10,19 +9,33 @@ import { Accordion, Code } from '@mantine/core';
 // custom comps
 import { Todo } from "@repo/ui/todo";
 
+function HighlightSummary({ children }) {
+  return <>
+    <section className={styles.hightlightSummary}>
+      {children}
+    </section>
+  </>
+}
 
-export default function TestPerfDashboard() {
+
+function example1() {
+  return NaN === NaN;
+}
+export default function JsDashboard() {
   const [a, setA] = React.useState(1)
+
+  const result = example1();
 
   return (
     <>
       <h2>Learn JS </h2>
-      <SizeValues></SizeValues>
-   </>
+
+      <HighlightSummary>
+        NaN === NaN // {result.toString()}
+      </HighlightSummary>
+    </>
   )
 }
-
-
 
 
 // helpers
@@ -41,41 +54,6 @@ function HeadValues() {
   return (
     <>
       <SimpleTable elements={elements}></SimpleTable>
-    </>
-  )
-}
-
-
-
-function SizeValues() {
-  // More 
-  // https://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window
-
-  const documentElement = document.documentElement
-  const windowInnerWidth = window.innerWidth;
-  const windowOuterWidth = window.outerWidth;
-
-  const screen = window.screen;
-  const elements = [
-    {
-      attribute: 'Client size',
-      value: `${documentElement.clientWidth} x ${documentElement.clientHeight}`
-    },
-
-    {
-      attribute: 'Screen size',
-      value: `${screen.width} x ${screen.height}`
-    }
-
-  ]
-
-  return (
-    <>
-      <SimpleTable elements={elements}></SimpleTable>
-
-      <p> Window inner width: {windowInnerWidth}px</p>
-      <p> Window outer width: {windowOuterWidth}px</p>
-      <p> Window inner + outer width: {windowInnerWidth + windowOuterWidth}px</p>
     </>
   )
 }
