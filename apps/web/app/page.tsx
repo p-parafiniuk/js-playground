@@ -8,7 +8,6 @@ import { Accordion, Code } from '@mantine/core';
 // custom comps
 import { Todo } from "@repo/ui/todo";
 
-// import { customFetcher } from "@repo/cms/contentful/facade.ts";
 import { client } from './lib/cms.ts';
 
 export default function WebDashboard() {

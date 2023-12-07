@@ -5,7 +5,7 @@ import { ColorSchemeScript, MantineProvider, createTheme, AppShell, Burger, Grou
 // import { MantineLogo } from '@mantine/ds';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
+import Nav, { NavProps } from '@repo/ui/nav';
 // core styles are required for all packages
 import '@mantine/core/styles.css';
 
@@ -45,8 +45,6 @@ export default function RootLayout({
 
       <body className={inter.className}>
         <MantineProvider theme={theme}>
-          {/* {children} */}
-
           <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
         </MantineProvider>
 
@@ -64,12 +62,10 @@ export function ResponsiveSizesAppShell({
   const [opened, handlers] = useDisclosure(false);
   // const [opened, { toggle }] = useDisclosure();
 
-
-  // {Array(15)
-  //   .fill(0)
-  //   .map((_, index) => (
-  //     <Skeleton key={index} h={28} mt="sm" animate={false} />
-  //   ))}
+  const links: NavProps = [{
+    path: '/js',
+    label: 'JavaScript'
+  }]
 
   return (
     <AppShell
@@ -88,7 +84,7 @@ export function ResponsiveSizesAppShell({
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        Navbar
+        <Nav links={links}></Nav>
       </AppShell.Navbar>
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
