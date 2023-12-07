@@ -19,10 +19,29 @@ export default function TestPerfDashboard() {
       <p> state(a): {a}</p>
 
       <SizeValues></SizeValues>
+      <HeadValues></HeadValues>
     </>
   )
 }
-// 
+
+function HeadValues() {
+  const docType = document.doctype
+  const windowInnerWidth = window.innerWidth;
+  const windowOuterWidth = window.outerWidth;
+  // const booleanExists = (expr) => {
+  //   return !!expr 
+  // }
+
+  const booleanEmoji = (expr: T) => !!expr ? <>✅</>: <>❌</>;
+
+  return (
+    <>
+      <p> Doc type exists: {booleanEmoji(docType)}</p>
+    </>
+  )
+}
+
+
 
 function SizeValues() {
   const clientWidth = document.documentElement.clientWidth;
