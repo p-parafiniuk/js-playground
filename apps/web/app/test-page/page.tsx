@@ -25,10 +25,36 @@ export default function TestPerfDashboard() {
 
       <br /><br />
       <h2>React</h2>
-      <p> state(a): {a}</p>
+      <ReactValues></ReactValues>
     </>
   )
 }
+
+
+
+function ReactValues() {
+  const [a, setA] = React.useState(1)
+  const elements = [
+    {
+      attribute: 'React version',
+      value: React.version
+    },
+
+    {
+      attribute: 'Actual component state',
+      value: a
+    }
+
+  ]
+
+  return (
+    <>
+      <SimpleTable elements={elements}></SimpleTable>
+    </>
+  )
+}
+
+
 // helpers
 function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
 
