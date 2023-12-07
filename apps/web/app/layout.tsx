@@ -69,12 +69,12 @@ export function ResponsiveSizesAppShell({
       label: 'Home'
     },
     {
-      path: '/js',
+      path: 'learn/js',
       label: 'JavaScript'
     },
     {
-      path: '/test-page',
-      label: 'Checklists test'
+      path: '/javascript-info',
+      label: '<? javascript_info();?>'
     }]
 
   return (
