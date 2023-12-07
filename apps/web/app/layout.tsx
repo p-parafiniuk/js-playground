@@ -4,6 +4,8 @@ import { useDisclosure } from '@mantine/hooks';
 import { ColorSchemeScript, MantineProvider, createTheme, AppShell, Burger, Group, Skeleton } from '@mantine/core';
 // import { MantineLogo } from '@mantine/ds';
 import type { Metadata } from "next";
+import Link from "next/link";
+
 import { Inter } from "next/font/google";
 import Nav, { NavProps } from '@repo/ui/nav';
 // core styles are required for all packages
@@ -91,6 +93,7 @@ export function ResponsiveSizesAppShell({
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={handlers.toggle} hiddenFrom="sm" size="sm" />
           {/* <MantineLogo size={30} /> */}
+          <Link href="/">JS Playground</Link>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
