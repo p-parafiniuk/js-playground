@@ -61,11 +61,17 @@ function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
 
 function HeadValues() {
   const docType = document.doctype
+  const metadata = document.metadata;
   const elements = [
     {
       attribute: 'Doc type exists',
       value: booleanEmoji(docType)
+    },
+    {
+      attribute: 'Meta data exists',
+      value: booleanEmoji(metadata)
     }
+
   ]
 
   return (
