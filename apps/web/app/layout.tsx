@@ -38,6 +38,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script src="http://localhost:8097"></script>
+
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,7 +49,7 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
-        
+
         <React.StrictMode>
           <MantineProvider theme={theme}>
             <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
