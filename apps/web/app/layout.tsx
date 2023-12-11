@@ -76,6 +76,10 @@ export function ResponsiveSizesAppShell({
       label: 'Home'
     },
     {
+      path: '/discovery',
+      label: 'Discovery'
+    },
+    {
       path: 'learn/js',
       label: 'JavaScript'
     },
