@@ -109,6 +109,10 @@ function HeadValues() {
     {
       attribute: 'doc entries size()',
       value: docEntriesLen
+    },
+    {
+      attribute: 'Object ()',
+      value: Object.entries(Object).length
     }
   ]
 
