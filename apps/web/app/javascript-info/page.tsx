@@ -62,8 +62,14 @@ function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
 function printEntries(obj, childRenderer = '') {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries?retiredLocale=pl
   const formattedEntries = Object.entries(obj).map(([key, value], index) => {
+
     // return <>{childRenderer}</> // TODO general case
-    return <>{index}. {key}<br /></>
+    const isOwnProp: boolean = Object.hasOwn(obj, key)
+    return <tr>
+      <td>{index+1}. </td>
+      <td>{key}</td>
+      <td>{isOwnProp.toString()}</td>
+    </tr>
   });
 
 
@@ -114,7 +120,9 @@ function HeadValues() {
       <SimpleTable elements={elements}></SimpleTable>
 
       <Spoiler maxHeight={50} showLabel="Show more" hideLabel="Hide">
-        entries {entries}
+        
+        entries 
+        <table>{entries}</table>
       </Spoiler>
     </>
   )
