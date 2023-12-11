@@ -59,9 +59,10 @@ function ReactValues() {
 // helpers
 function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
 
-function printEntries(obj) {
+function printEntries(obj, childRenderer = '') {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries?retiredLocale=pl
   const formattedEntries = Object.entries(obj).map(([key, value], index) => {
+    // return <>{childRenderer}</> // TODO general case
     return <>{index}. {key}<br /></>
   });
 
