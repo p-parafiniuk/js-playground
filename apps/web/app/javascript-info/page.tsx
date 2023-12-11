@@ -123,9 +123,11 @@ function HeadValues() {
     <>
       <SimpleTable elements={elements}></SimpleTable>
 
+
+      <h2>entries</h2>
       <Spoiler maxHeight={50} showLabel="Show more" hideLabel="Hide">
         
-        entries 
+        
         <table>{entries}</table>
       </Spoiler>
     </>
