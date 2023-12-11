@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import "./globals.css";
 import { useDisclosure } from '@mantine/hooks';
 import { ColorSchemeScript, MantineProvider, createTheme, AppShell, Burger, Group, Skeleton } from '@mantine/core';
@@ -46,10 +47,11 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
-        <MantineProvider theme={theme}>
-          <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
-        </MantineProvider>
-
+        <React.StrictMode>
+          <MantineProvider theme={theme}>
+            <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
+          </MantineProvider>
+        </React.StrictMode>
       </body>
     </html>
   );
