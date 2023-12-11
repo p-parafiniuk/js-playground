@@ -6,6 +6,7 @@ import clsx from 'clsx';
 
 // mantine comps
 import { Accordion, Code } from '@mantine/core';
+import { Spoiler } from '@mantine/core';
 
 // custom comps
 import { Todo } from "@repo/ui/todo";
@@ -58,10 +59,34 @@ function ReactValues() {
 // helpers
 function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
 
+function printEntries(obj) {
+  // let formattedEntries = [];
+
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries?retiredLocale=pl
+  const formattedEntries = Object.entries(obj).map(([key, value], index) => {
+    return <>{index}. {key}<br /></>
+  });
+
+  console.log(formattedEntries)
+
+  return <>
+    {formattedEntries}
+  </>
+}
 
 function HeadValues() {
-  const docType = document.doctype
-  const metadata = document.metadata;
+  const docType = document.doctype;
+  // const metadata = document.getElementsByTagName('meta');
+
+  const docEntries = Object.entries(document);
+  const docEntriesLen = docEntries.length;
+  console.log(docEntries)
+
+  const winEntries = Object.entries(window);
+  const winEntriesLen = winEntries.length;
+  console.log(winEntries)
+  const entries = printEntries(window)
+
   const elements = [
     {
       attribute: 'Doc type exists',
@@ -69,14 +94,28 @@ function HeadValues() {
     },
     {
       attribute: 'Meta data exists',
-      value: booleanEmoji(metadata)
+      // value: metadata.toString()
+      value: ''
+    },
+    {
+      attribute: 'window entries size()',
+      value: winEntriesLen
+    },
+    {
+      attribute: 'doc entries size()',
+      value: docEntriesLen
     }
-
   ]
+
+  //TODO test if header exists
 
   return (
     <>
       <SimpleTable elements={elements}></SimpleTable>
+
+      <Spoiler maxHeight={50} showLabel="Show more" hideLabel="Hide">
+        entries {entries}
+      </Spoiler>
     </>
   )
 }
@@ -117,6 +156,7 @@ function SizeValues() {
 }
 
 import { Table } from '@mantine/core';
+import { log } from "console";
 
 // type Attr
 
