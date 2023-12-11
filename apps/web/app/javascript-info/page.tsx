@@ -60,15 +60,13 @@ function ReactValues() {
 function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
 
 function printEntries(obj) {
-  // let formattedEntries = [];
-
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries?retiredLocale=pl
   const formattedEntries = Object.entries(obj).map(([key, value], index) => {
     return <>{index}. {key}<br /></>
   });
 
-  console.log(formattedEntries)
 
+  // TODO:Perf whats better preformatting or inline
   return <>
     {formattedEntries}
   </>
@@ -108,6 +106,7 @@ function HeadValues() {
   ]
 
   //TODO test if header exists
+  // TODO Scrollable Spoiler comp
 
   return (
     <>
