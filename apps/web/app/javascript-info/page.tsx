@@ -126,8 +126,6 @@ function HeadValues() {
 
       <h2>entries</h2>
       <Spoiler maxHeight={50} showLabel="Show more" hideLabel="Hide">
-        
-        
         <table>{entries}</table>
       </Spoiler>
     </>
