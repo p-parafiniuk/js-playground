@@ -47,6 +47,7 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
+        
         <React.StrictMode>
           <MantineProvider theme={theme}>
             <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
