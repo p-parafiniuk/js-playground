@@ -29,6 +29,9 @@ function Home() {
       name: 'Skills::Total'
     },
     {
+      name: 'Core::AI'
+    },
+    {
       name: 'Core::Algo'
     },
     {
