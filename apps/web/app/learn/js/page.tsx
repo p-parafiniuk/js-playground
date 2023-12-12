@@ -17,11 +17,11 @@ function HighlightSummary({ children }) {
   </>
 }
 
-function iframePortal({ title = '', iframeSrc = '' }) {
+function iframePortal({ title = '', url = '' }) {
   return <>
     <iframe
       title={title}
-      src={iframeSrc}
+      src={url}
       frameBorder="0"
       width="100%"
       height="900px"
@@ -40,8 +40,8 @@ export default function JsDashboard() {
   const [a, setA] = React.useState(1)
 
   const result = example1();
-  const notesPortal = iframePortal('https://docs.google.com/document/d/12Oi4Lu9HkFCiNlCZ6UgVlIY2wv65SZ1RUtEX8L3jLpE/edit');
-  const roadmapPortal = iframePortal('https://roadmap.sh/javascript');
+  const notesPortal = iframePortal({ title: '', url: 'https://docs.google.com/document/d/12Oi4Lu9HkFCiNlCZ6UgVlIY2wv65SZ1RUtEX8L3jLpE/edit' });
+  const roadmapPortal = iframePortal({ title: '', url: 'https://roadmap.sh/javascript' });
 
   return (
     <>
