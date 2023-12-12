@@ -39,7 +39,7 @@ function Home() {
 
   const skillsStats: SkillsStats[] = [
     {
-        
+
     }
   ]
   // const mainSkillsStats = 
@@ -51,8 +51,11 @@ function Home() {
       <StatsCard name="JS" progress={{ done: 2, total: 20 }}></StatsCard>
 
 
+      {/* js content editable for div */}
 
-
+      {/* <div onClick="this.contentEditable='true';">
+        lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor
+      </div> */}
 
 
 
@@ -62,7 +65,11 @@ function Home() {
       <h2>In Progress</h2>
 
       <hr />
-      <SimpleTodo>Security::checklist</SimpleTodo>
+      <SimpleTodo>
+        <div className="editable" contentEditable="true">
+          Security::checklist
+        </div>
+      </SimpleTodo>
       <SimpleTodo>Security::Cookies</SimpleTodo>
       <SimpleTodo>Discovery::framwork - new task</SimpleTodo>
       <SimpleTodo>Viz::test - tree js demo</SimpleTodo>
