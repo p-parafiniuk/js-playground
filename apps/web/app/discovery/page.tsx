@@ -10,7 +10,7 @@ import { Accordion, Code } from '@mantine/core';
 import { Spoiler } from '@mantine/core';
 
 // custom comps
-import { Todo } from "@repo/ui/todo";
+import { StatsCard } from "@repo/ui/stats-card";
 
 
 export default function DiscoveryDashboard() {
@@ -18,6 +18,8 @@ export default function DiscoveryDashboard() {
   return (
     <>
       <h2>Discovery helpers </h2>
+
+      <StatsCard></StatsCard>
       <DiscoveryInit></DiscoveryInit>
     </>
   )
