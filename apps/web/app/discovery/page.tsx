@@ -20,34 +20,69 @@ export default function DiscoveryDashboard() {
       <h2>Discovery helpers </h2>
 
       <StatsCard></StatsCard>
+
+      <br /><br />
+      <h3>Estimation</h3>
       <DiscoveryInit></DiscoveryInit>
     </>
   )
 }
 
-type Estimation = {
+type IdLabelPair = {
+  id?: string;
+  label: string;
+}
+
+type EstimationRow = {
+  reviewed: boolean;
+  status: 'wip' | 'ready';
+  // healthScore: number;
+  storyType: "feat" | "NFR";
   storyName?: string;
   tasks?: string;
   optimisticTime?: number;
   pessimisticTime?: number;
+  confidenceLevel?: number;
+  complexity?: number;
+  effort?: number;
+
+  knows?: IdLabelPair[];
+  unknows?: IdLabelPair[];
+  asumptions?: IdLabelPair[];
+  risks?: IdLabelPair[];
+
+  warnings?: IdLabelPair[];
 }
 
 type Opp = {
   name?: string;
-
+  estimation: EstimationRow[]
 }
 
 function DiscoveryInit() {
   // const [a, setA] = React.useState(1)
 
   const headers = [
-    { name: 'Story', id: 'story' },
-    { name: 'Tasks', id: 'tasks' }
+    { name: 'Story', id: 'storyName' },
+    { name: 'Tasks', id: 'tasks' },
+    { name: 'Opt.', id: 'optimisticTime' },
+    { name: 'Pess.', id: 'pessimisticTime' },
+    { name: 'Conf lvl.', id: 'confidenceLevel' },
   ];
 
-  const data = [
-    { story: 'stosfdkjaklj', tasks: 'taskds' },
-    { story: 'stosfdkjaklj', tasks: 'taskds' }
+  const data: EstimationRow[] = [
+    { 
+      reviewed: false, 
+      status: 'wip', 
+      storyType: 'NFR', 
+      storyName: 'NFR- Security', 
+      tasks: 'task 1, task 2',
+      optimisticTime: 2,
+      pessimisticTime: 4,
+      confidenceLevel: 50,
+      complexity: 5,
+      effort: 8,
+     },
   ];
 
   return (
