@@ -79,16 +79,51 @@ export function ResponsiveSizesAppShell({
       path: '/discovery',
       label: 'Discovery'
     },
+
+    // Core
     {
-      path: 'learn/js',
-      label: 'JavaScript'
+      path: '/core/html',
+      label: '1.1::Core::WebStandards::HTML 5'
     },
+    {
+      path: '/core/css',
+      label: '1.2::Core::WebStandards::CSS'
+    },
+    // features
+    {
+      path: '/features/TBA',
+      label: 'Features::TBA'
+    },
+
+    // Languages
+    {
+      path: '/languages/js',
+      label: 'Languages::JS'
+    },
+    {
+      path: '/languages/typescript',
+      label: 'Languages::TypeScript'
+    },
+    // NFR
+    {
+      path: '/nfr/security',
+      label: 'NFR::Security'
+    },
+    {
+      path: '/nfr/perf',
+      label: 'NFR::Performance'
+    },
+    {
+      path: '/nfr/seo',
+      label: 'NFR::SEO'
+    },
+    // Other
     {
       path: '/pages/viz',
       label: 'Viz module'
     },
     {
-      path: '/javascript-info',
+      path: '/pages/javascript-info',
       label: '<? javascript_info();?>'
     }
   ]
