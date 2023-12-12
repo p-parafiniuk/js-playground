@@ -6,7 +6,8 @@ import classes from './StatsCard.module.css';
 
 type StatsCardProps = {
   name?: string;
-  progress?: {
+  target?: string;
+  progress: {
     done: number;
     total: number;
     // percentageValue: number;
@@ -17,6 +18,7 @@ type StatsCardProps = {
 
 export function StatsCard({
   name,
+  target, // eg. 32 km / week
   progress,
   timeLeft,
 
@@ -33,7 +35,7 @@ export function StatsCard({
         {name}
       </Text>
       <Text c="dimmed" ta="center" fz="sm">
-        32 km / week
+        {target}
       </Text>
 
       <Group justify="space-between" mt="xs">
@@ -48,7 +50,7 @@ export function StatsCard({
       <Progress value={62} mt={5} />
 
       <Group justify="space-between" mt="md">
-        <Text fz="sm">20 / 36 km</Text>
+        <Text fz="sm">Tasks: {progress.done} / {progress.total}</Text>
         <Badge size="sm">{timeLeft} left</Badge>
       </Group>
     </Paper>
