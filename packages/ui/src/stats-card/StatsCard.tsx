@@ -47,7 +47,7 @@ export function StatsCard({
         </Text>
       </Group>
 
-      <Progress value={62} mt={5} />
+      <Progress value={progress.done} mt={5} />
 
       <Group justify="space-between" mt="md">
         <Text fz="sm">Tasks: {progress.done} / {progress.total}</Text>
