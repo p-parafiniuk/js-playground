@@ -23,14 +23,12 @@ export default function DiscoveryDashboard() {
   )
 }
 
-
 type Estimation = {
   storyName?: string;
   tasks?: string;
   optimisticTime?: number;
   pessimisticTime?: number;
 }
-
 
 type Opp = {
   name?: string;
@@ -44,7 +42,9 @@ function DiscoveryInit() {
     { name: 'Story', id: 'story' },
     { name: 'Tasks', id: 'tasks' }
   ];
+
   const data = [
+    { story: 'stosfdkjaklj', tasks: 'taskds' },
     { story: 'stosfdkjaklj', tasks: 'taskds' }
   ];
 
