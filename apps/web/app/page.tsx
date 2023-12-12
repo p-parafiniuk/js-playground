@@ -22,19 +22,6 @@ export default function WebDashboard() {
   )
 }
 
-// export type SkillsStats = {
-//   name?: string;
-//   target?: string;
-// progress: {
-//     done: number;
-//     total: number;
-//     // percentageValue: number;
-//   },
-//   timeLeft?: number;
-//   priority?: 'critical' | 'high' | 'medium' | 'low' | 'unknown'
-// }
-
-
 function Home() {
 
   const skillsStats: SkillsStats[] = [
@@ -53,7 +40,6 @@ function Home() {
 
       <h2>In Progress</h2>
 
-      <hr />
       <SimpleTodo>
 
         {/* js content editable for div */}
@@ -64,12 +50,10 @@ function Home() {
       <SimpleTodo>Security::Cookies</SimpleTodo>
       <SimpleTodo>Discovery::framwork - new task</SimpleTodo>
       <SimpleTodo>Viz::test - tree js demo</SimpleTodo>
-      <SimpleTodo>JS::Roadmap</SimpleTodo>
 
 
       <br /><br />
       <h2>TODO</h2>
-      <hr />
 
       <div>
 
@@ -84,13 +68,15 @@ function Home() {
         <SimpleTodo>JS::listMeta</SimpleTodo>
         <SimpleTodo>JS::featureDiscovery</SimpleTodo>
 
-        <SimpleTodo>TS::Roadmap</SimpleTodo>
+
 
         <SimpleTodo>Algoritms::roadmap</SimpleTodo>
 
         <br /><br />
         <h2>Done</h2>
-        <hr />
+        <SimpleTodo>TS::Roadmap</SimpleTodo>
+
+        <SimpleTodo>JS::Roadmap</SimpleTodo>
       </div>
     </>
   )
