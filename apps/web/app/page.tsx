@@ -26,15 +26,45 @@ function Home() {
 
   const skillsStats: SkillsStats[] = [
     {
-
+      name: 'Core::Algo'
+    },
+    {
+      name: 'Core::HTML'
+    },
+    {
+      name: 'Core::CSS'
+    },
+    {
+      name: 'Language::JS'
+    },
+    {
+      name: 'Language::TypeScript'
+    },
+    {
+      name: 'Framework::React'
+    },
+    {
+      name: 'Framework::Next.js'
+    },
+    {
+      name: 'NFR::Perf'
+    },
+    {
+      name: 'NFR::Security'
+    },
+    {
+      name: 'NFR::SEO'
     }
   ]
-  // const mainSkillsStats = 
+  const mainSkillsStats = skillsStats.map(elem => {
+    return <StatsCard name={elem.name} progress={{ done: 2, total: 20 }}></StatsCard>
+  })
   return (
     <>
       <p> Idea: Learn by creating micro-examples</p>
 
-      <StatsCard name="JS" progress={{ done: 2, total: 20 }}></StatsCard>
+      {/* <StatsCard name="JS" progress={{ done: 2, total: 20 }}></StatsCard> */}
+      {mainSkillsStats}
 
       <br /><br /><br />
 
