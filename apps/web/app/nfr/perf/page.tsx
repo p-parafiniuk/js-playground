@@ -1,0 +1,25 @@
+'use client';
+import React from "react";
+import styles from "./page.module.css";
+import { iframePortal } from "../../lib/helpers";
+
+export default function Page() {
+  const notesPortal = iframePortal({ title: '', url: 'https://docs.google.com/document/d/1j1ZX76o7OAA22Si5_JTvA_m_mFEw6k4x-I0SJDiYroY/edit' });
+  const roadmapPortal = undefined; //iframePortal({ title: '', url: 'https://roadmap.sh/css' });
+
+  return (
+    <>
+      <h2>Learn Performance (Web Vitals)</h2>
+      <hr />
+      {`--> Read (his)story <--`}
+
+      <br /><br />
+      <h2>Notes (portal - WiP)</h2>
+      {notesPortal}
+
+      <br /><br />
+      <h2>Roadmap</h2>
+      {roadmapPortal || 'no roadmap'}
+    </>
+  )
+}
