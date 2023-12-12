@@ -26,6 +26,9 @@ function Home() {
 
   const skillsStats: SkillsStats[] = [
     {
+      name: 'Skills::Total'
+    },
+    {
       name: 'Core::Algo'
     },
     {
