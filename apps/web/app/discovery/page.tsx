@@ -64,8 +64,12 @@ function dataTransformation(data: EstimationRow[]) {
   return data.map((elem: EstimationRow) => {
     const nominator = elem.pessimisticTime - elem.optimisticTime;
 
-    return elem.confidenceLevel = Math.round(nominator / elem.pessimisticTime * 100)
-  })
+    return {
+      ...elem,
+      confidenceLevel: Math.round(nominator / elem.pessimisticTime * 100)
+    }
+  }
+  )
 }
 
 function DiscoveryInit() {
@@ -101,7 +105,7 @@ function DiscoveryInit() {
       {/* <CSVLink data={data} headers={headers} filename={"my-data.csv"}>
         Export to CSV
       </CSVLink> */}
-      <DynamicTable headers={headers} data={data} />
+      <DynamicTable headers={headers} data={transformedData} />
     </>
   )
 }
