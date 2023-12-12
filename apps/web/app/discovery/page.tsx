@@ -50,7 +50,7 @@ type EstimationRow = {
   asumptions?: IdLabelPair[];
   risks?: IdLabelPair[];
 
-  sys: {
+  sys?: {
     // healthScore: number;
     warnings?: IdLabelPair[];
   }
