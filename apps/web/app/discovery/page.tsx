@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useId } from "react";
 // import styles from "./page.module.css";
+import { CSVLink } from 'react-csv';
 
 import clsx from 'clsx';
 
@@ -23,49 +24,46 @@ export default function DiscoveryDashboard() {
 }
 
 function DiscoveryInit() {
-  const [a, setA] = React.useState(1)
-  const elements = [
-    {
-      attribute: 'React version',
-      value: React.version
-    },
-    {
-      attribute: 'Actual component state',
-      value: a
-    }
-  ]
+  // const [a, setA] = React.useState(1)
+
+  const headers = ['header1', 'header2', 'header3'];
+  const data = [
+    { header1: 'Row 1 Cell 1', header2: 'Row 1 Cell 2', header3: 'Row 1 Cell 3' },
+    { header1: 'Row 2 Cell 1', header2: 'Row 2 Cell 2', header3: 'Row 2 Cell 3' },
+    // more rows...
+  ];
 
   return (
     <>
-      <DiscoveryEstimationTable elements={elements}></DiscoveryEstimationTable>
+      {/* <CSVLink data={data} headers={headers} filename={"my-data.csv"}>
+        Export to CSV
+      </CSVLink> */}
+      <DynamicTable headers={headers} data={data} />
     </>
   )
 }
 
 import { Table } from '@mantine/core';
 
-// type Attr
+const DynamicTable = ({ headers, data }) => {
+  const headerCells = headers.map((header, index) => (
+    <Table.Th key={index}>{header}</Table.Th>
+  ));
 
-function DiscoveryEstimationTable({ elements }) {
-  const rows = elements.map((element) => (
-    <Table.Tr key={element.attribute}>
-      <Table.Td>{element.attribute}</Table.Td>
-      <Table.Td>{element.value}</Table.Td>
+  const rows = data.map((row, rowIndex) => (
+    <Table.Tr key={rowIndex}>
+      {headers.map((header, cellIndex) => (
+        <Table.Td key={cellIndex}>{row[header]}</Table.Td>
+      ))}
     </Table.Tr>
   ));
 
   return (
     <Table>
       <Table.Thead>
-        <Table.Tr>
-        <Table.Th>Status</Table.Th>
-          <Table.Th>Story</Table.Th>
-          <Table.Th>Tasks</Table.Th>
-          <Table.Th>Opt</Table.Th>
-          <Table.Th>Pess</Table.Th>
-        </Table.Tr>
+        <Table.Tr>{headerCells}</Table.Tr>
       </Table.Thead>
       <Table.Tbody>{rows}</Table.Tbody>
     </Table>
   );
-}
+};
