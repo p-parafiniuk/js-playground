@@ -17,13 +17,12 @@ export default function DiscoveryDashboard() {
   return (
     <>
       <h2>Discovery helpers </h2>
+      <DiscoveryInit></DiscoveryInit>
     </>
   )
 }
 
-
-
-function ReactValues() {
+function DiscoveryInit() {
   const [a, setA] = React.useState(1)
   const elements = [
     {
@@ -38,40 +37,16 @@ function ReactValues() {
 
   return (
     <>
-      <SimpleTable elements={elements}></SimpleTable>
+      <DiscoveryEstimationTable elements={elements}></DiscoveryEstimationTable>
     </>
   )
-}
-
-
-// helpers
-function booleanEmoji(expr: T) { return !!expr ? <>✅</> : <>❌</>; }
-
-function printEntries(obj, childRenderer = '') {
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries?retiredLocale=pl
-  const formattedEntries = Object.entries(obj).map(([key, value], index) => {
-
-    // return <>{childRenderer}</> // TODO general case
-    const isOwnProp: boolean = Object.hasOwn(obj, key)
-    return <tr>
-      <td>{index+1}. </td>
-      <td>{key}</td>
-      <td>{isOwnProp.toString()}</td>
-    </tr>
-  });
-
-
-  // TODO:Perf whats better preformatting or inline
-  return <>
-    {formattedEntries}
-  </>
 }
 
 import { Table } from '@mantine/core';
 
 // type Attr
 
-function SimpleTable({ elements }) {
+function DiscoveryEstimationTable({ elements }) {
   const rows = elements.map((element) => (
     <Table.Tr key={element.attribute}>
       <Table.Td>{element.attribute}</Table.Td>
@@ -83,8 +58,11 @@ function SimpleTable({ elements }) {
     <Table>
       <Table.Thead>
         <Table.Tr>
-          <Table.Th>Attribute</Table.Th>
-          <Table.Th>Value</Table.Th>
+        <Table.Th>Status</Table.Th>
+          <Table.Th>Story</Table.Th>
+          <Table.Th>Tasks</Table.Th>
+          <Table.Th>Opt</Table.Th>
+          <Table.Th>Pess</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>{rows}</Table.Tbody>
