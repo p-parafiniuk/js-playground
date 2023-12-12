@@ -23,14 +23,29 @@ export default function DiscoveryDashboard() {
   )
 }
 
+
+type Estimation = {
+  storyName?: string;
+  tasks?: string;
+  optimisticTime?: number;
+  pessimisticTime?: number;
+}
+
+
+type Opp = {
+  name?: string;
+
+}
+
 function DiscoveryInit() {
   // const [a, setA] = React.useState(1)
 
-  const headers = ['header1', 'header2', 'header3'];
+  const headers = [
+    { name: 'Story', id: 'story' },
+    { name: 'Tasks', id: 'tasks' }
+  ];
   const data = [
-    { header1: 'Row 1 Cell 1', header2: 'Row 1 Cell 2', header3: 'Row 1 Cell 3' },
-    { header1: 'Row 2 Cell 1', header2: 'Row 2 Cell 2', header3: 'Row 2 Cell 3' },
-    // more rows...
+    { story: 'stosfdkjaklj', tasks: 'taskds' }
   ];
 
   return (
@@ -47,13 +62,13 @@ import { Table } from '@mantine/core';
 
 const DynamicTable = ({ headers, data }) => {
   const headerCells = headers.map((header, index) => (
-    <Table.Th key={index}>{header}</Table.Th>
+    <Table.Th key={index}>{header.name}</Table.Th>
   ));
 
   const rows = data.map((row, rowIndex) => (
     <Table.Tr key={rowIndex}>
       {headers.map((header, cellIndex) => (
-        <Table.Td key={cellIndex}>{row[header]}</Table.Td>
+        <Table.Td key={cellIndex}>{row[header.id]}</Table.Td>
       ))}
     </Table.Tr>
   ));
