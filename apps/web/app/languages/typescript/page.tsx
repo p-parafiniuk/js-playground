@@ -36,26 +36,14 @@ function iframePortal({ title = '', url = '' }) {
 export default function JsDashboard() {
   const [a, setA] = React.useState(1)
 
-  const result = example1();
   const notesPortal = iframePortal({ title: '', url: 'https://docs.google.com/document/d/12Oi4Lu9HkFCiNlCZ6UgVlIY2wv65SZ1RUtEX8L3jLpE/edit' });
   const roadmapPortal = iframePortal({ title: '', url: 'https://roadmap.sh/javascript' });
 
   return (
     <>
-      <h2>Learn JS </h2>
+      <h2>Learn TypeScript </h2>
       <hr />
       {`--> Read (his)story <--`}
-
-      <br />  <br />
-      <h3>NaN (not a number)</h3>
-      <p>so why you are so crazy JS?</p>
-
-      <HighlightSummary>
-        NaN === NaN // {result.toString()}
-        <br />
-        typeof(NaN) // {typeof (NaN)}
-      </HighlightSummary>
-
 
       <br /><br />
       <h2>Notes (portal - WiP)</h2>
