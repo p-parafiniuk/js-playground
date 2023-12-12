@@ -36,7 +36,6 @@ type IdLabelPair = {
 type EstimationRow = {
   reviewed: boolean;
   status: 'wip' | 'ready';
-  // healthScore: number;
   storyType: "feat" | "NFR";
   storyName?: string;
   tasks?: string;
@@ -51,7 +50,10 @@ type EstimationRow = {
   asumptions?: IdLabelPair[];
   risks?: IdLabelPair[];
 
-  warnings?: IdLabelPair[];
+  sys: {
+    // healthScore: number;
+    warnings?: IdLabelPair[];
+  }
 }
 
 type Opp = {
