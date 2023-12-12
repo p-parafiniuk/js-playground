@@ -66,6 +66,8 @@ function Home() {
 function SimpleTodo({ children }) {
   return <>
     <div className={styles.SimpleTodo}>
+      {/* TODO add progress and priority & est. time */}
+      {/* TODO add drag&drop  */}
       {children}
     </div>
   </>
