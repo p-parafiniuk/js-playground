@@ -1,3 +1,5 @@
+// https://ui.mantine.dev/category/stats/
+
 import { ThemeIcon, Progress, Text, Group, Badge, Paper, rem } from '@mantine/core';
 import { IconSwimming } from '@tabler/icons-react';
 import classes from './StatsCard.module.css';
