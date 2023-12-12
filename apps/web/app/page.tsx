@@ -24,11 +24,25 @@ function Home() {
   return (
     <>
       <p> Idea: Learn by creating micro-examples</p>
+      <h2>In Progress</h2>
+
+      <hr />
+      <SimpleTodo>Security::checklist</SimpleTodo>
+
+
+      <br /><br />
+      <h2>TODO</h2>
+      <hr />
 
       <div>
+
+        <SimpleTodo>Framworks::nextjs</SimpleTodo>
+
+        <SimpleTodo>SEO::Meta</SimpleTodo>
+
         <SimpleTodo>Security::Cookies</SimpleTodo>
         <SimpleTodo>Security::Auth</SimpleTodo>
-        <SimpleTodo>Security::checklist</SimpleTodo>
+
 
         <SimpleTodo>Viz::test - tree js demo</SimpleTodo>
         <SimpleTodo>Discovery::framwork - new task</SimpleTodo>
@@ -41,6 +55,9 @@ function Home() {
 
         <SimpleTodo>Algoritms::roadmap</SimpleTodo>
 
+        <br /><br />
+        <h2>Done</h2>
+        <hr />
       </div>
     </>
   )
