@@ -28,6 +28,10 @@ function Home() {
 
       <hr />
       <SimpleTodo>Security::checklist</SimpleTodo>
+      <SimpleTodo>Security::Cookies</SimpleTodo>
+      <SimpleTodo>Discovery::framwork - new task</SimpleTodo>
+      <SimpleTodo>Viz::test - tree js demo</SimpleTodo>
+      <SimpleTodo>JS::Roadmap</SimpleTodo>
 
 
       <br /><br />
@@ -40,14 +44,10 @@ function Home() {
 
         <SimpleTodo>SEO::Meta</SimpleTodo>
 
-        <SimpleTodo>Security::Cookies</SimpleTodo>
         <SimpleTodo>Security::Auth</SimpleTodo>
 
 
-        <SimpleTodo>Viz::test - tree js demo</SimpleTodo>
-        <SimpleTodo>Discovery::framwork - new task</SimpleTodo>
 
-        <SimpleTodo>JS::Roadmap</SimpleTodo>
         <SimpleTodo>JS::listMeta</SimpleTodo>
         <SimpleTodo>JS::featureDiscovery</SimpleTodo>
 
