@@ -40,9 +40,9 @@ type EstimationRow = {
   storyType: "feat" | "NFR";
   storyName?: string;
   tasks?: string;
-  optimisticTime?: number;
-  pessimisticTime?: number;
-  confidenceLevel?: number;
+  optimisticTime: number;
+  pessimisticTime: number;
+  confidenceLevel?: number | null;
   complexity?: number;
   effort?: number;
 
@@ -58,6 +58,13 @@ type Opp = {
   name?: string;
   estimation: EstimationRow[]
 }
+function dataTransformation(data: EstimationRow[]) {
+  return data.map((elem: EstimationRow) => {
+    const nominator = elem.pessimisticTime - elem.optimisticTime;
+
+    return elem.confidenceLevel = Math.round(nominator / elem.pessimisticTime * 100)
+  })
+}
 
 function DiscoveryInit() {
   // const [a, setA] = React.useState(1)
@@ -71,19 +78,21 @@ function DiscoveryInit() {
   ];
 
   const data: EstimationRow[] = [
-    { 
-      reviewed: false, 
-      status: 'wip', 
-      storyType: 'NFR', 
-      storyName: 'NFR- Security', 
+    {
+      reviewed: false,
+      status: 'wip',
+      storyType: 'NFR',
+      storyName: 'NFR- Security',
       tasks: 'task 1, task 2',
       optimisticTime: 2,
       pessimisticTime: 4,
       confidenceLevel: 50,
       complexity: 5,
       effort: 8,
-     },
+    },
   ];
+
+  const transformedData = dataTransformation(data);
 
   return (
     <>
