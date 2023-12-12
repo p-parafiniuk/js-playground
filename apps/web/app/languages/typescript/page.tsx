@@ -36,7 +36,7 @@ function iframePortal({ title = '', url = '' }) {
 export default function JsDashboard() {
   const [a, setA] = React.useState(1)
 
-  const notesPortal = iframePortal({ title: '', url: 'https://docs.google.com/document/d/12Oi4Lu9HkFCiNlCZ6UgVlIY2wv65SZ1RUtEX8L3jLpE/edit' });
+  const notesPortal = iframePortal({ title: '', url: 'https://docs.google.com/document/d/1bqe7o7EaRjIoPUnfUUy7UldpGyPv3X1aJ0EObiKKbbI/edit' });
   const roadmapPortal = iframePortal({ title: '', url: 'https://roadmap.sh/javascript' });
 
   return (

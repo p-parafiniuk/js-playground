@@ -56,6 +56,7 @@ export default function JsDashboard() {
       {`--> Read (his)story <--`}
 
       <br />  <br />
+      <h2>Examples</h2>
       <h3>NaN (not a number)</h3>
       <p>so why you are so crazy JS?</p>
 
@@ -64,10 +65,17 @@ export default function JsDashboard() {
         <br />
         typeof(NaN) // {typeof (NaN)}
         <br /><br />
-        {'{}'} === {'{}'} // { result2.toString()}
+        {'{}'} === {'{}'} // {result2.toString()}
         <br />
       </HighlightSummary>
 
+      <br /><br />
+
+      <h2>Recap</h2>
+      <HighlightSummary>
+        1. Primitive values are <strong>immutable</strong> <br />
+        2. Variables are not values (they are like wires)
+      </HighlightSummary>
 
       <br /><br />
       <h2>Notes (portal - WiP)</h2>
