@@ -50,7 +50,7 @@ export default function JsDashboard() {
         src="https://roadmap.sh/javascript" 
         frameborder="0" 
         width="100%" 
-        height="600px"
+        height="900px"
         aria-hidden="true"
         >
         <p>Your browser does not support iframes.</p>

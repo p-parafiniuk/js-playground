@@ -4,7 +4,25 @@ import { ThemeIcon, Progress, Text, Group, Badge, Paper, rem } from '@mantine/co
 // import { IconSwimming } from '@tabler/icons-react';
 import classes from './StatsCard.module.css';
 
-export function StatsCard() {
+type StatsCardProps = {
+  name?: string;
+  progress?: {
+    done: number;
+    total: number;
+    // percentageValue: number;
+  },
+  timeLeft?: number;
+
+}
+
+export function StatsCard({
+  name,
+  progress,
+  timeLeft,
+
+}: StatsCardProps) {
+  const progressValue = Math.round(progress?.done / progress?.total * 100);
+
   return (
     <Paper radius="md" withBorder className={classes.card} mt={20}>
       <ThemeIcon className={classes.icon} size={60} radius={60}>
@@ -12,7 +30,7 @@ export function StatsCard() {
       </ThemeIcon>
 
       <Text ta="center" fw={700} className={classes.title}>
-        Swimming challenge
+        {name}
       </Text>
       <Text c="dimmed" ta="center" fz="sm">
         32 km / week
@@ -23,7 +41,7 @@ export function StatsCard() {
           Progress
         </Text>
         <Text fz="sm" c="dimmed">
-          62%
+          {progressValue}%
         </Text>
       </Group>
 
@@ -31,7 +49,7 @@ export function StatsCard() {
 
       <Group justify="space-between" mt="md">
         <Text fz="sm">20 / 36 km</Text>
-        <Badge size="sm">4 days left</Badge>
+        <Badge size="sm">{timeLeft} left</Badge>
       </Group>
     </Paper>
   );
