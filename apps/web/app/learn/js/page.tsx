@@ -17,6 +17,21 @@ function HighlightSummary({ children }) {
   </>
 }
 
+function iframePortal({ title = '', iframeSrc = '' }) {
+  return <>
+    <iframe
+      title={title}
+      src={iframeSrc}
+      frameBorder="0"
+      width="100%"
+      height="900px"
+      aria-hidden="true"
+    >
+      <p>Your browser does not support iframes.</p>
+    </iframe>
+  </>
+}
+
 
 function example1() {
   return NaN === NaN;
@@ -25,6 +40,8 @@ export default function JsDashboard() {
   const [a, setA] = React.useState(1)
 
   const result = example1();
+  const notesPortal = iframePortal('https://docs.google.com/document/d/12Oi4Lu9HkFCiNlCZ6UgVlIY2wv65SZ1RUtEX8L3jLpE/edit');
+  const roadmapPortal = iframePortal('https://roadmap.sh/javascript');
 
   return (
     <>
@@ -44,17 +61,12 @@ export default function JsDashboard() {
 
 
       <br /><br />
+      <h2>Notes (portal - WiP)</h2>
+      {notesPortal}
+
+      <br /><br />
       <h2>Roadmap</h2>
-      <iframe 
-        title="I contain a js roadmap" 
-        src="https://roadmap.sh/javascript" 
-        frameborder="0" 
-        width="100%" 
-        height="900px"
-        aria-hidden="true"
-        >
-        <p>Your browser does not support iframes.</p>
-      </iframe>
+      {roadmapPortal}
     </>
   )
 }
