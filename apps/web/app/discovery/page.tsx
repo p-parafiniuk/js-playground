@@ -36,7 +36,7 @@ type IdLabelPair = {
 type EstimationRow = {
   reviewed: boolean;
   status: 'wip' | 'ready';
-  storyType: "feat" | "NFR";
+  storyType: 'setup' | "feat" | "NFR";
   storyName?: string;
   tasks?: string;
   optimisticTime: number;
