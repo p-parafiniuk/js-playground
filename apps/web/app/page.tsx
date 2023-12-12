@@ -47,18 +47,7 @@ function Home() {
     <>
       <p> Idea: Learn by creating micro-examples</p>
 
-
       <StatsCard name="JS" progress={{ done: 2, total: 20 }}></StatsCard>
-
-
-      {/* js content editable for div */}
-
-      {/* <div onClick="this.contentEditable='true';">
-        lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor
-      </div> */}
-
-
-
 
       <br /><br /><br />
 
@@ -66,6 +55,8 @@ function Home() {
 
       <hr />
       <SimpleTodo>
+
+        {/* js content editable for div */}
         <div className="editable" contentEditable="true">
           Security::checklist
         </div>
