@@ -36,10 +36,16 @@ function iframePortal({ title = '', url = '' }) {
 function example1() {
   return NaN === NaN;
 }
+
+function exampleObjectEquality() {
+  return {} === {};
+}
+
 export default function JsDashboard() {
   const [a, setA] = React.useState(1)
 
   const result = example1();
+  const result2 = exampleObjectEquality();
   const notesPortal = iframePortal({ title: '', url: 'https://docs.google.com/document/d/12Oi4Lu9HkFCiNlCZ6UgVlIY2wv65SZ1RUtEX8L3jLpE/edit' });
   const roadmapPortal = iframePortal({ title: '', url: 'https://roadmap.sh/javascript' });
 
@@ -57,6 +63,9 @@ export default function JsDashboard() {
         NaN === NaN // {result.toString()}
         <br />
         typeof(NaN) // {typeof (NaN)}
+        <br /><br />
+        {'{}'} === {'{}'} // { result2.toString()}
+        <br />
       </HighlightSummary>
 
 
