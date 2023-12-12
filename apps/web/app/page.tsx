@@ -26,15 +26,21 @@ function Home() {
       <p> Idea: Learn by creating micro-examples</p>
 
       <div>
-        <SimpleTodo>Viz::test - tree js demo</SimpleTodo>
-        <SimpleTodo>Discovery::framwork - new task</SimpleTodo>
-        <SimpleTodo>JS::Roadmap</SimpleTodo>
-        <SimpleTodo>JS::listMeta</SimpleTodo>
-        <SimpleTodo>JS::featureDiscovery</SimpleTodo>
-        <SimpleTodo>Algoritms::roadmap</SimpleTodo>
         <SimpleTodo>Security::Cookies</SimpleTodo>
         <SimpleTodo>Security::Auth</SimpleTodo>
         <SimpleTodo>Security::checklist</SimpleTodo>
+
+        <SimpleTodo>Viz::test - tree js demo</SimpleTodo>
+        <SimpleTodo>Discovery::framwork - new task</SimpleTodo>
+
+        <SimpleTodo>JS::Roadmap</SimpleTodo>
+        <SimpleTodo>JS::listMeta</SimpleTodo>
+        <SimpleTodo>JS::featureDiscovery</SimpleTodo>
+
+        <SimpleTodo>TS::Roadmap</SimpleTodo>
+
+        <SimpleTodo>Algoritms::roadmap</SimpleTodo>
+
       </div>
     </>
   )
