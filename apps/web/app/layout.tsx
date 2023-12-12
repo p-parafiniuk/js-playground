@@ -84,9 +84,14 @@ export function ResponsiveSizesAppShell({
       label: 'JavaScript'
     },
     {
+      path: '/pages/viz',
+      label: 'Viz module'
+    },
+    {
       path: '/javascript-info',
       label: '<? javascript_info();?>'
-    }]
+    }
+  ]
 
   return (
     <AppShell
