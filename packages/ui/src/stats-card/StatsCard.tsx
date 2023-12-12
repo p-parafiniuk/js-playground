@@ -3,18 +3,8 @@
 import { ThemeIcon, Progress, Text, Group, Badge, Paper, rem } from '@mantine/core';
 // import { IconSwimming } from '@tabler/icons-react';
 import classes from './StatsCard.module.css';
-
-type StatsCardProps = {
-  name?: string;
-  target?: string;
-  progress: {
-    done: number;
-    total: number;
-    // percentageValue: number;
-  },
-  timeLeft?: number;
-
-}
+import {SkillsStats} from '@repo/types'
+type StatsCardProps = SkillsStats;
 
 export function StatsCard({
   name,

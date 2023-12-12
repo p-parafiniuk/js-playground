@@ -9,6 +9,7 @@ import { Accordion, Code } from '@mantine/core';
 // custom comps
 import { Todo } from "@repo/ui/todo";
 import { StatsCard } from "@repo/ui/stats-card";
+import { SkillsStats } from "@repo/types";
 
 
 export default function WebDashboard() {
@@ -21,22 +22,43 @@ export default function WebDashboard() {
   )
 }
 
+// export type SkillsStats = {
+//   name?: string;
+//   target?: string;
+// progress: {
+//     done: number;
+//     total: number;
+//     // percentageValue: number;
+//   },
+//   timeLeft?: number;
+//   priority?: 'critical' | 'high' | 'medium' | 'low' | 'unknown'
+// }
+
+
 function Home() {
+
+  const skillsStats: SkillsStats[] = [
+    {
+        
+    }
+  ]
+  // const mainSkillsStats = 
   return (
     <>
       <p> Idea: Learn by creating micro-examples</p>
-      
-      <StatsCard name="JS" progress={{done: 2, total: 20}}></StatsCard>
 
-      
-      
-      
-      
-      
-      
-      
+
+      <StatsCard name="JS" progress={{ done: 2, total: 20 }}></StatsCard>
+
+
+
+
+
+
+
+
       <br /><br /><br />
-      
+
       <h2>In Progress</h2>
 
       <hr />

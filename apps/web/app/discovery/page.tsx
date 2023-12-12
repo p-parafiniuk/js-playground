@@ -19,7 +19,7 @@ export default function DiscoveryDashboard() {
     <>
       <h2>Discovery helpers </h2>
 
-      <StatsCard></StatsCard>
+      <StatsCard name="Opp #1" progress={{done: 2, total: 8}}></StatsCard>
 
       <br /><br />
       <h3>Estimation</h3>
