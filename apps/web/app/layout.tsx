@@ -112,7 +112,20 @@ export function ResponsiveSizesAppShell({
       path: '/languages/typescript',
       label: 'Languages::TypeScript'
     },
+    // Frameworks
+    {
+      path: '/frameworks/react',
+      label: 'Frameworks::React'
+    },
+    {
+      path: '/frameworks/next',
+      label: 'Frameworks::Next'
+    },
     // NFR
+    {
+      path: '/nfr/testing',
+      label: 'NFR::Testing'
+    },
     {
       path: '/nfr/security',
       label: 'NFR::Security'
