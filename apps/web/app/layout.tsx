@@ -86,6 +86,10 @@ export function ResponsiveSizesAppShell({
       label: 'Core::AI'
     },
     {
+      path: '/core/algo',
+      label: 'Core::Algo'
+    },
+    {
       path: '/core/html',
       label: 'Core::WebStandards::HTML 5'
     },
