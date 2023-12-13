@@ -82,12 +82,16 @@ export function ResponsiveSizesAppShell({
 
     // Core
     {
+      path: '/core/ai',
+      label: 'Core::AI'
+    },
+    {
       path: '/core/html',
-      label: '1.1::Core::WebStandards::HTML 5'
+      label: 'Core::WebStandards::HTML 5'
     },
     {
       path: '/core/css',
-      label: '1.2::Core::WebStandards::CSS'
+      label: 'Core::WebStandards::CSS'
     },
     // features
     {
