@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
+    "@tabler/icons-react": "^2.44.0",
     "clsx": "^2.0.0",
     "contentful": "^10.6.12",
     "next": "^14.0.2",

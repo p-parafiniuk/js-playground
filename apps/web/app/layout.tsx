@@ -26,7 +26,7 @@ const theme = createTheme({
 const inter = Inter({ subsets: ["latin"] });
 
 const metadata: Metadata = {
-  title: "Web playground 0.02",
+  title: "Web playground 0.04",
   description: "Web playground, a place to growth your frontend skills",
 };
 
