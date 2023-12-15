@@ -85,7 +85,11 @@ export default function DiscoveryDashboard() {
         </Button>
       </Card>
 
-      <DiscoveryInit></DiscoveryInit>
+      <br />
+      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+        <DiscoveryInit></DiscoveryInit>
+      </Card>
+
     </>
   )
 }
