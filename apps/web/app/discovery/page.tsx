@@ -113,8 +113,8 @@ type Opp = {
   estimation: EstimationRow[]
 }
 
-function Median( nominator: number, denominator: number): number {
-  return Math.round(nominator / denominator * 100);
+function Median(nominator: number, denominator: number): number {
+  return Math.abs(Math.round(nominator / denominator * 100));
 }
 
 function dataTransformation(data: EstimationRow[]) {
@@ -124,7 +124,7 @@ function dataTransformation(data: EstimationRow[]) {
     return {
       ...elem,
       // confidenceLevel: Math.round(nominator / elem.pessimisticTime * 100)
-      confidenceLevel: Median(nominator,  elem.pessimisticTime)
+      confidenceLevel: Median(nominator, elem.pessimisticTime)
     }
   });
 }
