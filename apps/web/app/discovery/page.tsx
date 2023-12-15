@@ -48,7 +48,7 @@ export default function DiscoveryDashboard() {
 
       {/* key={} */}
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
-        TESTS
+        Total confidence level:
       </Card>
       <DiscoveryInit></DiscoveryInit>
     </>
@@ -95,8 +95,25 @@ function dataTransformation(data: EstimationRow[]) {
       ...elem,
       confidenceLevel: Math.round(nominator / elem.pessimisticTime * 100)
     }
-  }
-  )
+  });
+}
+
+function GradientBadge({ value }: { value: number }) {
+  const errorGradient = { from: 'red', to: 'pink', deg: 90 };
+  const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
+  const okGradient = { from: 'lime', to: 'green', deg: 90 };
+
+  const selectedGradient = value < 50 ? errorGradient : value < 80 ? warningGradient : okGradient;
+
+  return <>
+    <Badge
+      size="xl"
+      variant="gradient"
+      gradient={selectedGradient}
+    >
+      {value}%
+    </Badge>
+  </>
 }
 
 function DiscoveryInit() {
@@ -110,22 +127,7 @@ function DiscoveryInit() {
     {
       name: 'Conf lvl.',
       id: 'confidenceLevel',
-      customRenderer: (children: number) => {
-        const errorGradient = { from: 'red', to: 'pink', deg: 90 };
-        const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
-        const okGradient = {  from: 'lime', to: 'green', deg: 90 };
-
-        const selectedGradient = children < 50 ? errorGradient : children < 80 ? warningGradient : okGradient;
-        return <>
-          <Badge
-            size="xl"
-            variant="gradient"
-            gradient={selectedGradient}
-          >
-            {children}%
-          </Badge>
-        </>
-      }
+      customRenderer: (value: number) => <GradientBadge value={value}></GradientBadge>
     },
   ];
 
