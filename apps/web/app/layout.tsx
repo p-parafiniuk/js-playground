@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import "./globals.css";
 import { useDisclosure } from '@mantine/hooks';
 import { ColorSchemeScript, MantineProvider, createTheme, AppShell, Burger, Group, Skeleton } from '@mantine/core';
 // import { MantineLogo } from '@mantine/ds';
@@ -10,6 +9,7 @@ import Link from "next/link";
 import { Inter } from "next/font/google";
 import Nav, { NavProps } from '@repo/ui/nav';
 // core styles are required for all packages
+// import "./globals.css";
 import '@mantine/core/styles.css';
 
 // other css files are required only if
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script src="http://localhost:8097"></script>
+        {/* <script src="http://localhost:8097"></script> */}
 
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -122,6 +122,10 @@ export function ResponsiveSizesAppShell({
       label: 'Frameworks::Next'
     },
     // NFR
+    {
+      path: '/nfr/accesibility',
+      label: 'NFR::Accesibility'
+    },
     {
       path: '/nfr/testing',
       label: 'NFR::Testing'
