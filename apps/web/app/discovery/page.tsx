@@ -32,36 +32,34 @@ export default function DiscoveryDashboard() {
 
       <br />
       <h3>Glossary</h3>
-      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+      <SimpleCard>
         <p>TBD</p>
-      </Card>
+      </SimpleCard>
 
       <br />
       <h3>Tasks (TODO)</h3>
-      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+      <SimpleCard>
         <p>grouped totals -  TBD</p>
         <p>cone of uncertainty - TBD</p>
-      </Card>
-
+      </SimpleCard>
 
       <br />
       <h3>Stats (Viz)</h3>
       <SimpleCard>
-      <p>TBD</p>
+        <p>TBD</p>
       </SimpleCard>
 
       <br />
       <h3>Estimation</h3>
 
-      {/* key={} */}
-      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+      <SimpleCard>
         Total confidence level: <GradientBadge value={80}></GradientBadge>
         Total cost: {`<from::to>`}<br />
         Total cost: {`<from::to>`}
-      </Card>
+      </SimpleCard>
       <br />
 
-      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+      <SimpleCard>
         <h2>Add new task</h2>
         <InputValidation></InputValidation>
 
@@ -72,13 +70,12 @@ export default function DiscoveryDashboard() {
         >
           Add
         </Button>
-      </Card>
+      </SimpleCard>
 
       <br />
-      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+      <SimpleCard>
         <DiscoveryInit></DiscoveryInit>
-      </Card>
-
+      </SimpleCard>
     </>
   )
 }
