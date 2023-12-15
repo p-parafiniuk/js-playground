@@ -42,6 +42,15 @@ export default function DiscoveryDashboard() {
       <StatsCard name="Opp #1" progress={{ done: 2, total: 8 }}></StatsCard>
 
       <InputValidation></InputValidation>
+
+      <br /><br />
+      <h3>Glossary</h3>
+      <p>TBD</p>
+
+      <br /><br />
+      <h3>Tasks (TODO)</h3>
+      <p>TBD</p>
+
       <br /><br />
       <h3>Estimation</h3>
 
