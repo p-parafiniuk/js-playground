@@ -41,8 +41,6 @@ export default function DiscoveryDashboard() {
 
       <StatsCard name="Opp #1" progress={{ done: 2, total: 8 }}></StatsCard>
 
-      <InputValidation></InputValidation>
-
       <br /><br />
       <h3>Glossary</h3>
       <p>TBD</p>
@@ -52,6 +50,11 @@ export default function DiscoveryDashboard() {
       <p>TBD</p>
 
       <br /><br />
+      <h3>Stats (Viz)</h3>
+      <p>TBD</p>
+
+
+      <br /><br />
       <h3>Estimation</h3>
 
 
@@ -59,6 +62,12 @@ export default function DiscoveryDashboard() {
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
         Total confidence level: <GradientBadge value={80}></GradientBadge>
       </Card>
+
+      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+        <h2>Add new task</h2>
+        <InputValidation></InputValidation>
+      </Card>
+
       <DiscoveryInit></DiscoveryInit>
     </>
   )
