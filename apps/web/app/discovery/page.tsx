@@ -55,7 +55,7 @@ export default function DiscoveryDashboard() {
       <SimpleCard>
         Total confidence level: <GradientBadge value={80}></GradientBadge>
         Total cost: {`<from::to>`}<br />
-        Total cost: {`<from::to>`}
+        Total cost: {oppStats.totalCost.optimistic} - {oppStats.totalCost.pessimistic}
       </SimpleCard>
       <br />
 
@@ -112,13 +112,19 @@ type Opp = {
   name?: string;
   estimation: EstimationRow[]
 }
+
+function Median( nominator: number, denominator: number): number {
+  return Math.round(nominator / denominator * 100);
+}
+
 function dataTransformation(data: EstimationRow[]) {
   return data.map((elem: EstimationRow) => {
     const nominator = elem.pessimisticTime - elem.optimisticTime;
 
     return {
       ...elem,
-      confidenceLevel: Math.round(nominator / elem.pessimisticTime * 100)
+      // confidenceLevel: Math.round(nominator / elem.pessimisticTime * 100)
+      confidenceLevel: Median(nominator,  elem.pessimisticTime)
     }
   });
 }
