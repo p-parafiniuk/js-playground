@@ -48,7 +48,7 @@ export default function DiscoveryDashboard() {
 
       {/* key={} */}
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
-        Total confidence level:
+        Total confidence level: <GradientBadge value={80}></GradientBadge>
       </Card>
       <DiscoveryInit></DiscoveryInit>
     </>
