@@ -15,13 +15,93 @@ import { StatsCard } from "@repo/ui/stats-card";
 import { TextInput, rem } from '@mantine/core';
 
 export default function DiscoveryDashboard() {
-  const oppStats = {
-    // progress
+
+  const headers = [
+    { name: 'Story', id: 'storyName' },
+    { name: 'Tasks', id: 'tasks' },
+    { name: 'Opt.', id: 'optimisticTime' },
+    { name: 'Pess.', id: 'pessimisticTime' },
+    {
+      name: 'Conf lvl.',
+      id: 'confidenceLevel',
+      customRenderer: (value: number) => <GradientBadge value={value}></GradientBadge>
+    },
+  ];
+
+  const dataInit: EstimationRow[] = [
+    {
+      reviewed: false,
+      status: 'wip',
+      storyType: 'setup',
+      storyName: 'Setup',
+      tasks: 'task 1, task 2',
+      optimisticTime: 1.5,
+      pessimisticTime: 2.5,
+      confidenceLevel: 50,
+      complexity: 5,
+      effort: 8,
+    },
+    {
+      reviewed: false,
+      status: 'wip',
+      storyType: 'feat',
+      storyName: 'Feat - Login',
+      tasks: 'task 1, task 2',
+      optimisticTime: 2,
+      pessimisticTime: 6,
+      confidenceLevel: 50,
+      complexity: 5,
+      effort: 8,
+    },
+    {
+      reviewed: false,
+      status: 'wip',
+      storyType: 'NFR',
+      storyName: 'NFR- Security',
+      tasks: 'task 1, task 2',
+      optimisticTime: 10,
+      pessimisticTime: 15,
+      confidenceLevel: 50,
+      complexity: 5,
+      effort: 8,
+    },
+  ];
+
+  const transformedData = dataTransformation(dataInit);
+
+
+  const [oppData, setOppData] = React.useState(transformedData)
+
+  const oppStatsInit = {
     totalCost: {
-      optimistic: 0,
-      pessimistic: 0,
+      optimistic: oppData.map((elem: EstimationRow) => elem.optimisticTime).reduce((a, b) => a + b, 0),
+      pessimistic: oppData.map((elem: EstimationRow) => elem.pessimisticTime).reduce((a, b) => a + b, 0),
     }
-    // total
+  }
+  const [oppStats, setOppStats] = React.useState(oppStatsInit)
+
+
+  function addEpic() {
+    // TODO - read data
+
+    setOppData(
+      [
+        ...oppData,
+        {
+          reviewed: false,
+          status: 'wip',
+          storyType: 'NFR',
+          storyName: 'NFR- Security',
+          tasks: 'task 1, task 2',
+          optimisticTime: 10,
+          pessimisticTime: 15,
+          confidenceLevel: 50,
+          complexity: 5,
+          effort: 8,
+        }
+      ]
+    );
+    setOppStats(oppStatsInit);
   }
 
   return (
@@ -67,6 +147,7 @@ export default function DiscoveryDashboard() {
           variant="gradient"
           gradient={{ from: 'indigo', to: 'blue', deg: 90 }}
           rightSection={<IconArrowRight size={14} />}
+          onClick={() => addEpic()}
         >
           Add
         </Button>
@@ -74,7 +155,12 @@ export default function DiscoveryDashboard() {
 
       <br />
       <SimpleCard>
-        <DiscoveryInit></DiscoveryInit>
+        Total items: {oppData.length}
+        <br />
+
+        <DynamicTable headers={headers} data={oppData} />
+
+        {/* <DiscoveryInit ></DiscoveryInit> */}
       </SimpleCard>
     </>
   )
@@ -129,71 +215,6 @@ function dataTransformation(data: EstimationRow[]) {
   });
 }
 
-function DiscoveryInit() {
-  // const [a, setA] = React.useState(1)
-
-  const headers = [
-    { name: 'Story', id: 'storyName' },
-    { name: 'Tasks', id: 'tasks' },
-    { name: 'Opt.', id: 'optimisticTime' },
-    { name: 'Pess.', id: 'pessimisticTime' },
-    {
-      name: 'Conf lvl.',
-      id: 'confidenceLevel',
-      customRenderer: (value: number) => <GradientBadge value={value}></GradientBadge>
-    },
-  ];
-
-  const data: EstimationRow[] = [
-    {
-      reviewed: false,
-      status: 'wip',
-      storyType: 'setup',
-      storyName: 'Setup',
-      tasks: 'task 1, task 2',
-      optimisticTime: 1.5,
-      pessimisticTime: 2.5,
-      confidenceLevel: 50,
-      complexity: 5,
-      effort: 8,
-    },
-    {
-      reviewed: false,
-      status: 'wip',
-      storyType: 'feat',
-      storyName: 'Feat - Login',
-      tasks: 'task 1, task 2',
-      optimisticTime: 2,
-      pessimisticTime: 6,
-      confidenceLevel: 50,
-      complexity: 5,
-      effort: 8,
-    },
-    {
-      reviewed: false,
-      status: 'wip',
-      storyType: 'NFR',
-      storyName: 'NFR- Security',
-      tasks: 'task 1, task 2',
-      optimisticTime: 10,
-      pessimisticTime: 15,
-      confidenceLevel: 50,
-      complexity: 5,
-      effort: 8,
-    },
-  ];
-
-  const transformedData = dataTransformation(data);
-
-  return (
-    <>
-      {/* <CSVLink data={data} headers={headers} filename={"my-data.csv"}>
-        Export to CSV
-      </CSVLink> */}
-      <DynamicTable headers={headers} data={transformedData} />
-    </>
-  )
-}
 
 /**
  * Custom components
@@ -277,3 +298,72 @@ export function GradientBadge({ value }: { value: number }) {
     </Badge>
   </>
 }
+
+
+/**
+ * Scratch pad
+ */
+
+// function DiscoveryInit() {
+//   const headers = [
+//     { name: 'Story', id: 'storyName' },
+//     { name: 'Tasks', id: 'tasks' },
+//     { name: 'Opt.', id: 'optimisticTime' },
+//     { name: 'Pess.', id: 'pessimisticTime' },
+//     {
+//       name: 'Conf lvl.',
+//       id: 'confidenceLevel',
+//       customRenderer: (value: number) => <GradientBadge value={value}></GradientBadge>
+//     },
+//   ];
+
+//   const data: EstimationRow[] = [
+//     {
+//       reviewed: false,
+//       status: 'wip',
+//       storyType: 'setup',
+//       storyName: 'Setup',
+//       tasks: 'task 1, task 2',
+//       optimisticTime: 1.5,
+//       pessimisticTime: 2.5,
+//       confidenceLevel: 50,
+//       complexity: 5,
+//       effort: 8,
+//     },
+//     {
+//       reviewed: false,
+//       status: 'wip',
+//       storyType: 'feat',
+//       storyName: 'Feat - Login',
+//       tasks: 'task 1, task 2',
+//       optimisticTime: 2,
+//       pessimisticTime: 6,
+//       confidenceLevel: 50,
+//       complexity: 5,
+//       effort: 8,
+//     },
+//     {
+//       reviewed: false,
+//       status: 'wip',
+//       storyType: 'NFR',
+//       storyName: 'NFR- Security',
+//       tasks: 'task 1, task 2',
+//       optimisticTime: 10,
+//       pessimisticTime: 15,
+//       confidenceLevel: 50,
+//       complexity: 5,
+//       effort: 8,
+//     },
+//   ];
+
+//   const transformedData = dataTransformation(data);
+
+//   return (
+//     <>
+//       {/* <CSVLink data={data} headers={headers} filename={"my-data.csv"}>
+//         Export to CSV
+//       </CSVLink> */}
+//       <DynamicTable headers={headers} data={transformedData} />
+//     </>
+//   )
+// }
