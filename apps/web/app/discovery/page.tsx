@@ -6,8 +6,9 @@ import { CSVLink } from 'react-csv';
 import clsx from 'clsx';
 
 // mantine comps
-import { Accordion, Code, Card, Badge } from '@mantine/core';
+import { Accordion, Code, Card, Badge, Button } from '@mantine/core';
 import { Spoiler } from '@mantine/core';
+import { IconPhoto, IconDownload, IconArrowRight } from '@tabler/icons-react';
 
 // custom comps
 import { StatsCard } from "@repo/ui/stats-card";
@@ -41,31 +42,47 @@ export default function DiscoveryDashboard() {
 
       <StatsCard name="Opp #1" progress={{ done: 2, total: 8 }}></StatsCard>
 
-      <br /><br />
+      <br />
       <h3>Glossary</h3>
-      <p>TBD</p>
+      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+        <p>TBD</p>
+      </Card>
 
-      <br /><br />
+      <br />
       <h3>Tasks (TODO)</h3>
-      <p>TBD</p>
+      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+        <p>TBD</p>
+      </Card>
 
-      <br /><br />
+
+      <br />
       <h3>Stats (Viz)</h3>
-      <p>TBD</p>
+      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+        <p>TBD</p>
+      </Card>
 
-
-      <br /><br />
+      <br />
       <h3>Estimation</h3>
-
 
       {/* key={} */}
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
         Total confidence level: <GradientBadge value={80}></GradientBadge>
+        Total cost: {`<from::to>`}
+        Total cost: {`<from::to>`}
       </Card>
+      <br />
 
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
         <h2>Add new task</h2>
         <InputValidation></InputValidation>
+
+        <Button
+          variant="gradient"
+          gradient={{ from: 'indigo', to: 'blue', deg: 90 }}
+          rightSection={<IconArrowRight size={14} />}
+        >
+          Add
+        </Button>
       </Card>
 
       <DiscoveryInit></DiscoveryInit>
