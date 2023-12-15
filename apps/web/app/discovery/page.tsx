@@ -14,31 +14,20 @@ import { IconPhoto, IconDownload, IconArrowRight } from '@tabler/icons-react';
 import { StatsCard } from "@repo/ui/stats-card";
 
 import { TextInput, rem } from '@mantine/core';
-import { IconAlertTriangle } from '@tabler/icons-react';
-import classes from './InputValidation.module.css';
 
-export function InputValidation() {
-  return (
-    <TextInput
-      label="Custom validation styles"
-      error="Invalid email"
-      defaultValue=""
-      classNames={{ input: classes.invalid }}
-      rightSection={
-        <IconAlertTriangle
-          stroke={1.5}
-          style={{ width: rem(18), height: rem(18) }}
-          className={classes.icon}
-        />
-      }
-    />
-  );
-}
 export default function DiscoveryDashboard() {
+  const oppStats = {
+    // progress
+    totalCost: {
+      optimistic: 0,
+      pessimistic: 0,
+    }
+    // total
+  }
 
   return (
     <>
-      <h2>Discovery helpers </h2>
+      <h2>Discovery tools - Opp card</h2>
 
       <StatsCard name="Opp #1" progress={{ done: 2, total: 8 }}></StatsCard>
 
@@ -67,7 +56,7 @@ export default function DiscoveryDashboard() {
       {/* key={} */}
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
         Total confidence level: <GradientBadge value={80}></GradientBadge>
-        Total cost: {`<from::to>`}
+        Total cost: {`<from::to>`}<br />
         Total cost: {`<from::to>`}
       </Card>
       <br />
@@ -206,6 +195,28 @@ function DiscoveryInit() {
 /**
  * Custom components
  */
+
+import { IconAlertTriangle } from '@tabler/icons-react';
+import classes from './InputValidation.module.css';
+
+export function InputValidation() {
+  return (
+    <TextInput
+      label="Custom validation styles"
+      error="Invalid email"
+      defaultValue=""
+      classNames={{ input: classes.invalid }}
+      rightSection={
+        <IconAlertTriangle
+          stroke={1.5}
+          style={{ width: rem(18), height: rem(18) }}
+          className={classes.icon}
+        />
+      }
+    />
+  );
+}
+
 
 import { Table } from '@mantine/core';
 
