@@ -203,6 +203,10 @@ function DiscoveryInit() {
   )
 }
 
+/**
+ * Custom components
+ */
+
 import { Table } from '@mantine/core';
 
 
