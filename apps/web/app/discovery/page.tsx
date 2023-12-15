@@ -6,7 +6,7 @@ import { CSVLink } from 'react-csv';
 import clsx from 'clsx';
 
 // mantine comps
-import { Accordion, Code } from '@mantine/core';
+import { Accordion, Code, Card } from '@mantine/core';
 import { Spoiler } from '@mantine/core';
 
 // custom comps
@@ -21,7 +21,7 @@ export function InputValidation() {
     <TextInput
       label="Custom validation styles"
       error="Invalid email"
-      defaultValue="hello!gmail.com"
+      defaultValue=""
       classNames={{ input: classes.invalid }}
       rightSection={
         <IconAlertTriangle
@@ -46,7 +46,10 @@ export default function DiscoveryDashboard() {
       <h3>Estimation</h3>
 
 
-
+      {/* key={} */}
+      <Card  shadow="md" radius="md" className={classes.card} padding="xl">
+TESTS
+      </Card>
       <DiscoveryInit></DiscoveryInit>
     </>
   )

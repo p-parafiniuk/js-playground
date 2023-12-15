@@ -48,10 +48,13 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
 
-      <body className={inter.className}>
+      <body
+        className={inter.className} 
+        suppressHydrationWarning>
+          {/* https://github.com/vercel/next.js/discussions/22388#discussioncomment-6992884 */}
 
         <React.StrictMode>
-          <MantineProvider theme={theme}>
+          <MantineProvider theme={theme} defaultColorScheme="dark">
             <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
           </MantineProvider>
         </React.StrictMode>
