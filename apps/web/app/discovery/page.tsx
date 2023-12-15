@@ -102,7 +102,7 @@ type IdLabelPair = {
 type EstimationRow = {
   reviewed: boolean;
   status: 'wip' | 'ready';
-  storyType: 'setup' | "feat" | "NFR";
+  storyType: 'setup' | 'feat' | 'NFR';
   storyName?: string;
   tasks?: string;
   optimisticTime: number;
@@ -137,6 +137,7 @@ function dataTransformation(data: EstimationRow[]) {
   });
 }
 
+// TODO extract to separate file and extract business logic
 function GradientBadge({ value }: { value: number }) {
   const errorGradient = { from: 'red', to: 'pink', deg: 90 };
   const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
@@ -171,6 +172,30 @@ function DiscoveryInit() {
   ];
 
   const data: EstimationRow[] = [
+    {
+      reviewed: false,
+      status: 'wip',
+      storyType: 'setup',
+      storyName: 'Setup',
+      tasks: 'task 1, task 2',
+      optimisticTime: 1.5,
+      pessimisticTime: 2.5,
+      confidenceLevel: 50,
+      complexity: 5,
+      effort: 8,
+    },
+    {
+      reviewed: false,
+      status: 'wip',
+      storyType: 'feat',
+      storyName: 'Feat - Login',
+      tasks: 'task 1, task 2',
+      optimisticTime: 2,
+      pessimisticTime: 4,
+      confidenceLevel: 50,
+      complexity: 5,
+      effort: 8,
+    },
     {
       reviewed: false,
       status: 'wip',
