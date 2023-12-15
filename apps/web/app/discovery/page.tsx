@@ -110,12 +110,17 @@ function DiscoveryInit() {
     {
       name: 'Conf lvl.',
       id: 'confidenceLevel',
-      customRenderer: (children) => {
+      customRenderer: (children: number) => {
+        const errorGradient = { from: 'red', to: 'pink', deg: 90 };
+        const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
+        const okGradient = {  from: 'lime', to: 'green', deg: 90 };
+
+        const selectedGradient = children < 50 ? errorGradient : children < 80 ? warningGradient : okGradient;
         return <>
           <Badge
             size="xl"
             variant="gradient"
-            gradient={{ from: 'grape', to: 'violet', deg: 90 }}
+            gradient={selectedGradient}
           >
             {children}%
           </Badge>
@@ -152,6 +157,7 @@ function DiscoveryInit() {
 }
 
 import { Table } from '@mantine/core';
+
 
 const DynamicTable = ({ headers, data }) => {
   const headerCells = headers.map((header, index) => (
