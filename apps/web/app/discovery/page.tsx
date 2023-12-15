@@ -46,9 +46,9 @@ export default function DiscoveryDashboard() {
 
       <br />
       <h3>Stats (Viz)</h3>
-      <Card shadow="md" radius="md" className={classes.card} padding="xl">
-        <p>TBD</p>
-      </Card>
+      <SimpleCard>
+      <p>TBD</p>
+      </SimpleCard>
 
       <br />
       <h3>Estimation</h3>
