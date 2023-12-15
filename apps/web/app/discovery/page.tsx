@@ -2,7 +2,6 @@
 import React, { useState, useId } from "react";
 // import styles from "./page.module.css";
 import { CSVLink } from 'react-csv';
-
 import clsx from 'clsx';
 
 // mantine comps
@@ -40,7 +39,8 @@ export default function DiscoveryDashboard() {
       <br />
       <h3>Tasks (TODO)</h3>
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
-        <p>TBD</p>
+        <p>grouped totals -  TBD</p>
+        <p>cone of uncertainty - TBD</p>
       </Card>
 
 
@@ -196,6 +196,15 @@ function DiscoveryInit() {
  * Custom components
  */
 
+export function SimpleCard({ children }) {
+  return <>
+    <Card shadow="md" radius="md" className={classes.card} padding="xl">
+      {children}
+    </Card>
+
+  </>
+}
+
 import { IconAlertTriangle } from '@tabler/icons-react';
 import classes from './InputValidation.module.css';
 
@@ -221,7 +230,7 @@ export function InputValidation() {
 import { Table } from '@mantine/core';
 
 
-const DynamicTable = ({ headers, data }) => {
+export const DynamicTable = ({ headers, data }) => {
   const headerCells = headers.map((header, index) => (
     <Table.Th key={index}>{header.name}</Table.Th>
   ));
@@ -248,7 +257,7 @@ const DynamicTable = ({ headers, data }) => {
 };
 
 // TODO extract to separate file and extract business logic
-function GradientBadge({ value }: { value: number }) {
+export function GradientBadge({ value }: { value: number }) {
   const errorGradient = { from: 'red', to: 'pink', deg: 90 };
   const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
   const okGradient = { from: 'lime', to: 'green', deg: 90 };
