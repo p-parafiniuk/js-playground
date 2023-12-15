@@ -137,25 +137,6 @@ function dataTransformation(data: EstimationRow[]) {
   });
 }
 
-// TODO extract to separate file and extract business logic
-function GradientBadge({ value }: { value: number }) {
-  const errorGradient = { from: 'red', to: 'pink', deg: 90 };
-  const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
-  const okGradient = { from: 'lime', to: 'green', deg: 90 };
-
-  const selectedGradient = value < 50 ? errorGradient : value < 80 ? warningGradient : okGradient;
-
-  return <>
-    <Badge
-      size="xl"
-      variant="gradient"
-      gradient={selectedGradient}
-    >
-      {value}%
-    </Badge>
-  </>
-}
-
 function DiscoveryInit() {
   // const [a, setA] = React.useState(1)
 
@@ -191,7 +172,7 @@ function DiscoveryInit() {
       storyName: 'Feat - Login',
       tasks: 'task 1, task 2',
       optimisticTime: 2,
-      pessimisticTime: 4,
+      pessimisticTime: 6,
       confidenceLevel: 50,
       complexity: 5,
       effort: 8,
@@ -202,8 +183,8 @@ function DiscoveryInit() {
       storyType: 'NFR',
       storyName: 'NFR- Security',
       tasks: 'task 1, task 2',
-      optimisticTime: 2,
-      pessimisticTime: 4,
+      optimisticTime: 10,
+      pessimisticTime: 15,
       confidenceLevel: 50,
       complexity: 5,
       effort: 8,
@@ -250,3 +231,22 @@ const DynamicTable = ({ headers, data }) => {
     </Table>
   );
 };
+
+// TODO extract to separate file and extract business logic
+function GradientBadge({ value }: { value: number }) {
+  const errorGradient = { from: 'red', to: 'pink', deg: 90 };
+  const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
+  const okGradient = { from: 'lime', to: 'green', deg: 90 };
+
+  const selectedGradient = value < 50 ? errorGradient : value < 80 ? warningGradient : okGradient;
+
+  return <>
+    <Badge
+      size="xl"
+      variant="gradient"
+      gradient={selectedGradient}
+    >
+      {value}%
+    </Badge>
+  </>
+}
