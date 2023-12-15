@@ -6,7 +6,7 @@ import { CSVLink } from 'react-csv';
 import clsx from 'clsx';
 
 // mantine comps
-import { Accordion, Code, Card } from '@mantine/core';
+import { Accordion, Code, Card, Badge } from '@mantine/core';
 import { Spoiler } from '@mantine/core';
 
 // custom comps
@@ -47,8 +47,8 @@ export default function DiscoveryDashboard() {
 
 
       {/* key={} */}
-      <Card  shadow="md" radius="md" className={classes.card} padding="xl">
-TESTS
+      <Card shadow="md" radius="md" className={classes.card} padding="xl">
+        TESTS
       </Card>
       <DiscoveryInit></DiscoveryInit>
     </>
@@ -107,7 +107,21 @@ function DiscoveryInit() {
     { name: 'Tasks', id: 'tasks' },
     { name: 'Opt.', id: 'optimisticTime' },
     { name: 'Pess.', id: 'pessimisticTime' },
-    { name: 'Conf lvl.', id: 'confidenceLevel' },
+    {
+      name: 'Conf lvl.',
+      id: 'confidenceLevel',
+      customRenderer: (children) => {
+        return <>
+          <Badge
+            size="xl"
+            variant="gradient"
+            gradient={{ from: 'grape', to: 'violet', deg: 90 }}
+          >
+            {children}%
+          </Badge>
+        </>
+      }
+    },
   ];
 
   const data: EstimationRow[] = [
@@ -147,7 +161,10 @@ const DynamicTable = ({ headers, data }) => {
   const rows = data.map((row, rowIndex) => (
     <Table.Tr key={rowIndex}>
       {headers.map((header, cellIndex) => (
-        <Table.Td key={cellIndex}>{row[header.id]}</Table.Td>
+        <Table.Td key={cellIndex}>
+          {header.customRenderer && header.customRenderer(row[header.id])}
+          {!header.customRenderer && row[header.id]}
+        </Table.Td>
       ))}
     </Table.Tr>
   ));
