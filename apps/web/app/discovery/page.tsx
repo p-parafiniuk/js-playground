@@ -120,7 +120,7 @@ export default function DiscoveryDashboard() {
     },
     {
       value: 30,
-      color: 'purlple',
+      color: 'purple',
       label: 'NFR Buffers',
       tooltipLabel: 'Discovery',
     },
