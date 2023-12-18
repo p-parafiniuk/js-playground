@@ -269,7 +269,7 @@ function ProgressWithTooltips({ progressSections }: ProgressWithTooltipsProps) {
   });
 
   return (
-    <Progress.Root size={40}>
+    <Progress.Root size={30}>
       {progressSectionsTransform}
     </Progress.Root>
   );
