@@ -178,15 +178,15 @@ export default function DiscoveryDashboard() {
       <h3>Estimation</h3>
 
       <SimpleCard>
-        <h2>Cost & Confidence</h2> 
-      <div style={{'display': 'inline-block'}}>
-        <StandardBadge selectedGradient={okGradient} value={oppStats.totalCost.optimistic}></StandardBadge>
-        <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-        <StandardBadge selectedGradient={errorGradient} value={oppStats.totalCost.pessimistic}></StandardBadge>
-
-        (<GradientBadge value={80}></GradientBadge>)
-      </div>
-    </SimpleCard >
+        <h2>Cost & Confidence</h2>
+        <div style={{ 'display': 'inline-block' }}>
+          <StandardBadge selectedGradient={okGradient} value={oppStats.totalCost.optimistic}></StandardBadge>
+          <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+          <StandardBadge selectedGradient={errorGradient} value={oppStats.totalCost.pessimistic}></StandardBadge>
+          &nbsp;&nbsp;
+          (<GradientBadge value={Median(oppStats.totalCost.optimistic, oppStats.totalCost.pessimistic)}></GradientBadge>)
+        </div>
+      </SimpleCard >
       <br />
 
       <SimpleCard>
