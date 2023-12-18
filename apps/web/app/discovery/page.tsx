@@ -102,10 +102,29 @@ export default function DiscoveryDashboard() {
       ]
     );
     setOppStats(oppStatsInit);
+    // calcProgressByType();
   }
 
 
-  const progressSections:ProgressWithTooltipsProp[] = [
+
+
+  function calcProgressByType(data: EstimationRow[]) {
+    const total = data.length;
+    const types = [...new Set(data.map((elem: EstimationRow) => elem.storyType))];
+    const progressByType = types.reduce((progress, type) => {
+      const count = data.filter((elem: EstimationRow) => elem.storyType === type).length;
+      progress[type] = Math.round(count / total * 100);
+
+      return progress;
+    }, {});
+    // debugger
+    return progressByType;
+  }
+
+
+
+
+  const progressSectionsInitial: ProgressWithTooltipsProp[] = [
     {
       value: 10,
       color: 'grey',
@@ -122,10 +141,13 @@ export default function DiscoveryDashboard() {
       value: 30,
       color: 'purple',
       label: 'NFR Buffers',
-      tooltipLabel: 'Discovery',
-    },
-    
+      tooltipLabel: 'NFR Buffers',
+    }
   ]
+  const [progressSections, setProgressSections] = React.useState(progressSectionsInitial)
+  // const progressGroups = calcProgressByType(oppData);
+
+
 
   return (
     <>
@@ -158,8 +180,13 @@ export default function DiscoveryDashboard() {
       <SimpleCard>
         Total confidence level: <GradientBadge value={80}></GradientBadge>
         Total cost: {`<from::to>`}<br />
-        Total cost: {oppStats.totalCost.optimistic} - {oppStats.totalCost.pessimistic}
-      </SimpleCard>
+        Total cost:
+        <div style={{'display': 'inline-block'}}>
+        <StandardBadge selectedGradient={okGradient} value={oppStats.totalCost.optimistic}></StandardBadge>
+        <span> - </span>
+        <StandardBadge selectedGradient={errorGradient} value={oppStats.totalCost.pessimistic}></StandardBadge>
+      </div>
+    </SimpleCard >
       <br />
 
       <SimpleCard>
@@ -280,7 +307,6 @@ export function SimpleCard({ children }) {
     <Card shadow="md" radius="md" className={classes.card} padding="xl">
       {children}
     </Card>
-
   </>
 }
 
@@ -336,12 +362,7 @@ export const DynamicTable = ({ headers, data }) => {
 };
 
 // TODO extract to separate file and extract business logic
-export function GradientBadge({ value }: { value: number }) {
-  const errorGradient = { from: 'red', to: 'pink', deg: 90 };
-  const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
-  const okGradient = { from: 'lime', to: 'green', deg: 90 };
-
-  const selectedGradient = value < 50 ? errorGradient : value < 80 ? warningGradient : okGradient;
+export function StandardBadge({ selectedGradient, value, valueSuffix }: any) {
 
   return <>
     <Badge
@@ -349,10 +370,25 @@ export function GradientBadge({ value }: { value: number }) {
       variant="gradient"
       gradient={selectedGradient}
     >
-      {value}%
+      {value}{valueSuffix && '%'}
     </Badge>
   </>
 }
+
+
+export const errorGradient = { from: 'red', to: 'pink', deg: 90 };
+export const warningGradient = { from: 'yellow', to: 'orange', deg: 90 };
+export const okGradient = { from: 'lime', to: 'green', deg: 90 };
+
+export function GradientBadge({ value }: { value: number }) {
+
+  const selectedGradient = value < 50 ? errorGradient : value < 80 ? warningGradient : okGradient;
+
+  return <>
+    <StandardBadge selectedGradient={selectedGradient} value={value}></StandardBadge>
+  </>
+}
+
 
 
 /**
