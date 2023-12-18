@@ -153,7 +153,7 @@ export default function DiscoveryDashboard() {
     <>
       <h2>Discovery tools - Opp card</h2>
 
-      <StatsCard name="Opp #1" progress={{ done: 2, total: 8 }}></StatsCard>
+      <StatsCard name="Opp #1" progress={{ done: 2, total: oppData.length }}></StatsCard>
 
       <br />
       <h3>Glossary</h3>
@@ -178,13 +178,13 @@ export default function DiscoveryDashboard() {
       <h3>Estimation</h3>
 
       <SimpleCard>
-        Total confidence level: <GradientBadge value={80}></GradientBadge>
-        Total cost: {`<from::to>`}<br />
-        Total cost:
-        <div style={{'display': 'inline-block'}}>
+        <h2>Cost & Confidence</h2> 
+      <div style={{'display': 'inline-block'}}>
         <StandardBadge selectedGradient={okGradient} value={oppStats.totalCost.optimistic}></StandardBadge>
-        <span> - </span>
+        <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
         <StandardBadge selectedGradient={errorGradient} value={oppStats.totalCost.pessimistic}></StandardBadge>
+
+        (<GradientBadge value={80}></GradientBadge>)
       </div>
     </SimpleCard >
       <br />
