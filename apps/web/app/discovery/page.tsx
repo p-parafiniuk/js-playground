@@ -104,6 +104,29 @@ export default function DiscoveryDashboard() {
     setOppStats(oppStatsInit);
   }
 
+
+  const progressSections:ProgressWithTooltipsProp[] = [
+    {
+      value: 10,
+      color: 'grey',
+      label: 'Setup',
+      tooltipLabel: 'Setup',
+    },
+    {
+      value: 60,
+      color: 'blue',
+      label: 'Features',
+      tooltipLabel: 'Features',
+    },
+    {
+      value: 30,
+      color: 'purlple',
+      label: 'NFR Buffers',
+      tooltipLabel: 'Discovery',
+    },
+    
+  ]
+
   return (
     <>
       <h2>Discovery tools - Opp card</h2>
@@ -157,7 +180,7 @@ export default function DiscoveryDashboard() {
       <SimpleCard>
         Total items: {oppData.length}
         <br />
-        <ProgressWithTooltips></ProgressWithTooltips>
+        <ProgressWithTooltips progressSections={progressSections}></ProgressWithTooltips>
         <br />
 
         <DynamicTable headers={headers} data={oppData} />
@@ -221,30 +244,33 @@ function dataTransformation(data: EstimationRow[]) {
 /**
  * Custom components
  */
-
+type ProgressWithTooltipsProp = {
+  label: string;
+  tooltipLabel: string;
+  color: string;
+  value: number;
+}
 
 import { Progress, Tooltip } from '@mantine/core';
 
-function ProgressWithTooltips() {
+type ProgressWithTooltipsProps = {
+  progressSections: ProgressWithTooltipsProp[];
+}
+
+function ProgressWithTooltips({ progressSections }: ProgressWithTooltipsProps) {
+  const progressSectionsTransform = progressSections.map((element: ProgressWithTooltipsProp) => {
+    return (
+      <Tooltip label={element.tooltipLabel}>
+        <Progress.Section value={element.value} color={element.color}>
+          <Progress.Label>{element.label}</Progress.Label>
+        </Progress.Section>
+      </Tooltip>
+    );
+  });
+
   return (
     <Progress.Root size={40}>
-      <Tooltip label="Documents – 33Gb">
-        <Progress.Section value={33} color="cyan">
-          <Progress.Label>Documents</Progress.Label>
-        </Progress.Section>
-      </Tooltip>
-
-      <Tooltip label="Photos – 28Gb">
-        <Progress.Section value={28} color="pink">
-          <Progress.Label>Photos</Progress.Label>
-        </Progress.Section>
-      </Tooltip>
-
-      <Tooltip label="Other – 15Gb">
-        <Progress.Section value={15} color="orange">
-          <Progress.Label>Other</Progress.Label>
-        </Progress.Section>
-      </Tooltip>
+      {progressSectionsTransform}
     </Progress.Root>
   );
 }
