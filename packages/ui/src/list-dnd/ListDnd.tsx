@@ -53,3 +53,50 @@ export function ListDnd() {
     </DragDropContext>
   );
 }
+
+
+/**
+ * Initial ver
+ */
+
+// export function ListDnd() {
+//   const [state, handlers] = useListState(data);
+
+//   const items = state.map((item, index) => (
+//     <Draggable key={item.symbol} index={index} draggableId={item.symbol}>
+//       {(provided, snapshot) => (
+//         <div
+//           className={cx(classes.item, { [classes.itemDragging]: snapshot.isDragging })}
+//           {...provided.draggableProps}
+//           {...provided.dragHandleProps}
+//           ref={provided.innerRef}
+//         >
+//           <Text className={classes.symbol}>{item.symbol}</Text>
+//           <div>
+//             <Text>{item.name}</Text>
+//             <Text c="dimmed" size="sm">
+//               Position: {item.position} • Mass: {item.mass}
+//             </Text>
+//           </div>
+//         </div>
+//       )}
+//     </Draggable>
+//   ));
+
+//   return (
+//     <DragDropContext
+//       onDragEnd={({ destination, source }) =>
+//         handlers.reorder({ from: source.index, to: destination?.index || 0 })
+//       }
+//     >
+//       <Droppable droppableId="dnd-list" direction="vertical">
+//         {(provided) => (
+//           <div {...provided.droppableProps} ref={provided.innerRef}>
+//             {items}
+//             {provided.placeholder}
+//           </div>
+//         )}
+//       </Droppable>
+//     </DragDropContext>
+//   );
+// }
