@@ -164,7 +164,7 @@ export default function DiscoveryDashboard() {
       <br />
       <h3>Tasks (TODO)</h3>
       <SimpleCard>
-        <p>grouped totals -  TBD</p>
+        <p>grouped totals - TBD</p>
         <p>cone of uncertainty - TBD</p>
       </SimpleCard>
 
@@ -390,6 +390,16 @@ export function GradientBadge({ value }: { value: number }) {
 }
 
 
+
+
+// Helper types & Types helpers
+type PositiveNumber = number & { __brand: 'PositiveNumber' };
+
+function assertPositiveNumber(x: unknown): asserts x is PositiveNumber {
+  if (typeof x === 'number' && x < 0) {
+    throw new Error('Number is not greater zero');
+  }
+}
 
 /**
  * Scratch pad
