@@ -11,6 +11,7 @@ import { IconPhoto, IconDownload, IconArrowRight } from '@tabler/icons-react';
 
 // custom comps
 import { StatsCard } from "@repo/ui/stats-card";
+import { ListDnd } from "@repo/ui/list-dnd";
 
 import { TextInput, rem } from '@mantine/core';
 
@@ -151,6 +152,8 @@ export default function DiscoveryDashboard() {
 
   return (
     <>
+      <ListDnd></ListDnd>
+
       <h2>Discovery tools - Opp card</h2>
 
       <StatsCard name="Opp #1" progress={{ done: 2, total: oppData.length }}></StatsCard>
