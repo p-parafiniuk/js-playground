@@ -1,0 +1,112 @@
+{
+    "questions": [
+        {
+            "question": "What’s the current tech stack?",
+            "category": "Technology"
+        },
+        {
+            "question": "Do you have any preferences reagrding tech X?",
+            "category": "Technology"
+        },
+        {
+            "question": "Can we assume we go into custom development or you would like to continue with selected previously tech stack?",
+            "category": "Technology"
+        },
+        {
+            "question": "Will Webflow be a fit?",
+            "category": "Technology::LowCode"
+        },
+        {
+            "question": "Will you provide assets?",
+            "category": "Assets"
+        },
+        {
+            "question": "Does current assets require additional changes?",
+            "category": "Assets"
+        },
+        {
+            "question": "Are there any dynamic elements on-page eg. service calculator?",
+            "category": "Design"
+        },
+        {
+            "question": "Custom pages for each product or similar content for Products / Solution sections?",
+            "category": "Design"
+        },
+        {
+            "question": "How many events during the year?",
+            "category": "Events"
+        },
+        {
+            "question": "Does each event have its own page or user will be redirected for more information?",
+            "category": "Events"
+        },
+        {
+            "question": "Could you tell us in more detail about the products itself that will be presented on a dedicated product pages?",
+            "category": "Content"
+        },
+        {
+            "question": "Are there any more on-page functionalities/pages to be introduced than originally planned in the sitemap?",
+            "category": "Content"
+        },
+        {
+            "question": "Who is gonna be responsible for adding/adjusting content?",
+            "category": "CMS"
+        },
+        {
+            "question": "Is there any content that must be migrated?",
+            "category": "CMS"
+        },
+        {
+            "question": "Are there any requirements regarding CMS?",
+            "category": "CMS"
+        },
+        {
+            "question": "Do you have any preferences towards tools/plugins?",
+            "category": "CMS"
+        },
+        {
+            "question": "Are there any payments/e-commerce functionalities?",
+            "category": "CMS"
+        },
+        {
+            "question": "Are there any 3rd party integrations we need to be aware of eg. Dynamic list of events, products fetched from e-commerce, CRMs?",
+            "category": "Integrations"
+        },
+        {
+            "question": "Where do you store information from contact forms, CRM?",
+            "category": "Integrations"
+        },
+        {
+            "question": "With which analytics tools we need to integrate?",
+            "category": "Analytics"
+        },
+        {
+            "question": "Does the site need to be translated to different languages other than English?",
+            "category": "Localization"
+        },
+        {
+            "question": "Will you provide an SEO strategy or you would like us to take care of that?",
+            "category": "SEO"
+        },
+        {
+            "question": "Do you have any preferences or requirements regarding hosting?",
+            "category": "Hosting"
+        },
+        {
+            "question": "Do you have a budget in mind for the website rebuild?",
+            "category": "Project Management"
+        },
+        {
+            "question": "What is the timeline for the website rebuild?",
+            "category": "Project Management"
+        },
+        {
+            "question": "Will you require any additional features such as a blog, newsletter sign-up, or social media integration?",
+            "category": "Project Management"
+        },
+        {
+            "question": "Are there any specific design preferences or branding guidelines that need to be followed?",
+            "category": "Project Management"
+        }
+    ]
+}
