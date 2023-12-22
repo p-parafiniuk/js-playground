@@ -121,7 +121,6 @@ type ProgressWithTooltipsProp = {
 }
 
 import { Progress, Tooltip } from '@mantine/core';
-import { log } from 'console';
 
 type ProgressWithTooltipsProps = {
   progressSections: ProgressWithTooltipsProp[];
