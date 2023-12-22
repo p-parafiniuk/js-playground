@@ -18,7 +18,6 @@ export function ListDnd() {
 
   const allChecked = state.every((value) => value.checked);
   const indeterminate = state.some((value) => value.checked) && !allChecked;
-  // mt="xs"
 
   const items = state.map((item, index) => (
     <Draggable key={item.name} index={index} draggableId={item.name}>
@@ -32,6 +31,7 @@ export function ListDnd() {
           <Text className={classes.symbol}>{index + 1}.&nbsp;</Text>
 
           <Checkbox
+            size="md"
             key={item.name}
             checked={item.checked}
             onChange={(event) => handlers.setItemProp(index, 'checked', event.currentTarget.checked)}
