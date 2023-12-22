@@ -83,16 +83,19 @@ export function ListDnd() {
     <>
       {/* TODO sort by priority  */}
       <div className={classes.filters}>
-        {/* <Text c="dimmed" size="sm">
-        </Text> */}
-        <Select
-          label="Priority"
-          placeholder="Pick value"
-          data={['Asc', 'Desc']}
-        />
+        <div>
+          <Select
+            label="Priority"
+            placeholder="Pick value"
+            data={['Asc', 'Desc']}
+          />
+          <Button>Sort</Button>
+
+        </div>
 
 
-        <Button>Sort</Button>
+        <Button>Add</Button>
+
       </div>
 
       <div mb="xl">
