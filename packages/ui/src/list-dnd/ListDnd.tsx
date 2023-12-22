@@ -7,6 +7,7 @@ import classes from './ListDnd.module.css';
 const data = [
   { checked: false, priority: 6, dueDate: 12.011, name: 'Task one' },
   { checked: true, priority: 7, dueDate: 14.007, name: 'Task two' },
+  { checked: true, priority: 7, dueDate: 14.007, name: 'Task three' },
   // { position: 39, mass: 88.906, symbol: 'Y', name: 'Yttrium' },
   // { position: 56, mass: 137.33, symbol: 'Ba', name: 'Barium' },
   // { position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium' },
@@ -20,7 +21,7 @@ export function ListDnd() {
   // mt="xs"
 
   const items = state.map((item, index) => (
-    <Draggable key={item.symbol} index={index} draggableId={item.symbol}>
+    <Draggable key={item.name} index={index} draggableId={item.name}>
       {(provided, snapshot) => (
         <div
           className={cx(classes.item, { [classes.itemDragging]: snapshot.isDragging })}
