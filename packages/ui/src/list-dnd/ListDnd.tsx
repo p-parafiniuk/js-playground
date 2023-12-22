@@ -1,5 +1,5 @@
 import cx from 'clsx';
-import { Text, Checkbox } from '@mantine/core';
+import { Text, Checkbox, Button } from '@mantine/core';
 import { useListState } from '@mantine/hooks';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import classes from './ListDnd.module.css';
@@ -55,20 +55,31 @@ export function ListDnd() {
   ));
 
   return (
-    <DragDropContext
-      onDragEnd={({ destination, source }) =>
-        handlers.reorder({ from: source.index, to: destination?.index || 0 })
-      }
-    >
-      <Droppable droppableId="dnd-list" direction="vertical">
-        {(provided) => (
-          <div {...provided.droppableProps} ref={provided.innerRef}>
-            {items}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+    <>
+      {/* TODO sort by priority  */}
+      <div className={classes.item}>
+        <Text c="dimmed" size="sm">
+          Priority
+        </Text>
+
+        <Button>Sort</Button>
+      </div>
+
+      <DragDropContext
+        onDragEnd={({ destination, source }) =>
+          handlers.reorder({ from: source.index, to: destination?.index || 0 })
+        }
+      >
+        <Droppable droppableId="dnd-list" direction="vertical">
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {items}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </>
   );
 }
 
