@@ -1,5 +1,6 @@
+import React from 'react';
 import cx from 'clsx';
-import { Text, Checkbox, Button } from '@mantine/core';
+import { Text, Checkbox, Button, Select } from '@mantine/core';
 import { useListState } from '@mantine/hooks';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import classes from './ListDnd.module.css';
@@ -13,7 +14,31 @@ const data = [
   // { position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium' },
 ];
 
+// const progressSectionsInitial: ProgressWithTooltipsProp[] = [
+const progressSectionsInitial = [
+  {
+    value: 0,
+    color: 'green',
+    label: '',
+    tooltipLabel: '',
+  },
+  // {
+  //   value: 60,
+  //   color: 'blue',
+  //   label: 'Features',
+  //   tooltipLabel: 'Features',
+  // },
+  // {
+  //   value: 30,
+  //   color: 'purple',
+  //   label: 'NFR Buffers',
+  //   tooltipLabel: 'NFR Buffers',
+  // }
+]
+
+
 export function ListDnd() {
+  const [progressSections, setProgressSections] = React.useState(progressSectionsInitial)
   const [state, handlers] = useListState(data);
 
   const allChecked = state.every((value) => value.checked);
@@ -57,12 +82,21 @@ export function ListDnd() {
   return (
     <>
       {/* TODO sort by priority  */}
-      <div className={classes.item}>
-        <Text c="dimmed" size="sm">
-          Priority
-        </Text>
+      <div className={classes.filters}>
+        {/* <Text c="dimmed" size="sm">
+        </Text> */}
+        <Select
+          label="Priority"
+          placeholder="Pick value"
+          data={['Asc', 'Desc']}
+        />
+
 
         <Button>Sort</Button>
+      </div>
+
+      <div mb="xl">
+        <ProgressWithTooltips progressSections={progressSections} />
       </div>
 
       <DragDropContext
@@ -80,6 +114,41 @@ export function ListDnd() {
         </Droppable>
       </DragDropContext>
     </>
+  );
+}
+
+
+/**
+ * Custom components
+ */
+type ProgressWithTooltipsProp = {
+  label: string;
+  tooltipLabel: string;
+  color: string;
+  value: number;
+}
+
+import { Progress, Tooltip } from '@mantine/core';
+
+type ProgressWithTooltipsProps = {
+  progressSections: ProgressWithTooltipsProp[];
+}
+
+function ProgressWithTooltips({ progressSections }: ProgressWithTooltipsProps) {
+  const progressSectionsTransform = progressSections.map((element: ProgressWithTooltipsProp) => {
+    return (
+      <Tooltip label={element.tooltipLabel}>
+        <Progress.Section value={element.value} color={element.color}>
+          <Progress.Label>{element.label}</Progress.Label>
+        </Progress.Section>
+      </Tooltip>
+    );
+  });
+
+  return (
+    <Progress.Root size={30}>
+      {progressSectionsTransform}
+    </Progress.Root>
   );
 }
 
