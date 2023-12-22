@@ -14,32 +14,22 @@ const data = [
   // { position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium' },
 ];
 
-// const progressSectionsInitial: ProgressWithTooltipsProp[] = [
-const progressSectionsInitial = [
-  {
-    value: 0,
-    color: 'green',
-    label: '',
-    tooltipLabel: '',
-  },
-  // {
-  //   value: 60,
-  //   color: 'blue',
-  //   label: 'Features',
-  //   tooltipLabel: 'Features',
-  // },
-  // {
-  //   value: 30,
-  //   color: 'purple',
-  //   label: 'NFR Buffers',
-  //   tooltipLabel: 'NFR Buffers',
-  // }
-]
 
 
 export function ListDnd() {
-  const [progressSections, setProgressSections] = React.useState(progressSectionsInitial)
   const [state, handlers] = useListState(data);
+  console.log('state', state)
+
+// const progressSectionsInitial: ProgressWithTooltipsProp[] = [
+  const progressSectionsInitial = [
+    {
+      value: state.filter((item) => item.checked).length / state.length * 100,
+      color: 'green',
+      label: '',
+      tooltipLabel: '',
+    },
+  ]
+    const [progressSections, setProgressSections] = React.useState(progressSectionsInitial)
 
   const allChecked = state.every((value) => value.checked);
   const indeterminate = state.some((value) => value.checked) && !allChecked;
@@ -59,8 +49,10 @@ export function ListDnd() {
             size="md"
             key={item.name}
             checked={item.checked}
-            onChange={(event) => handlers.setItemProp(index, 'checked', event.currentTarget.checked)}
-
+            onChange={(event) => { 
+              handlers.setItemProp(index, 'checked', event.currentTarget.checked); 
+              setProgressSections(progressSections)
+            }}
             label={
               <>
                 {/* {index}.&nbsp; */}
@@ -83,19 +75,16 @@ export function ListDnd() {
     <>
       {/* TODO sort by priority  */}
       <div className={classes.filters}>
-        <div>
+        <div className={classes.filters}>
           <Select
             label="Priority"
             placeholder="Pick value"
             data={['Asc', 'Desc']}
           />
           <Button>Sort</Button>
-
         </div>
 
-
         <Button>Add</Button>
-
       </div>
 
       <div mb="xl">
@@ -132,6 +121,7 @@ type ProgressWithTooltipsProp = {
 }
 
 import { Progress, Tooltip } from '@mantine/core';
+import { log } from 'console';
 
 type ProgressWithTooltipsProps = {
   progressSections: ProgressWithTooltipsProp[];
@@ -149,7 +139,7 @@ function ProgressWithTooltips({ progressSections }: ProgressWithTooltipsProps) {
   });
 
   return (
-    <Progress.Root size={30}>
+    <Progress.Root size={24}>
       {progressSectionsTransform}
     </Progress.Root>
   );
