@@ -5,8 +5,8 @@ import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import classes from './ListDnd.module.css';
 
 const data = [
-  { checked: false, position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },
-  { checked: true, position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen' },
+  { checked: false, priority: 6, dueDate: 12.011, name: 'Task one' },
+  { checked: true, priority: 7, dueDate: 14.007, name: 'Task two' },
   // { position: 39, mass: 88.906, symbol: 'Y', name: 'Yttrium' },
   // { position: 56, mass: 137.33, symbol: 'Ba', name: 'Barium' },
   // { position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium' },
@@ -28,7 +28,7 @@ export function ListDnd() {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          <Text className={classes.symbol}>{index+1}.&nbsp;</Text>
+          <Text className={classes.symbol}>{index + 1}.&nbsp;</Text>
 
           <Checkbox
             key={item.name}
@@ -45,7 +45,7 @@ export function ListDnd() {
           <div>
             <Text>{item.name}</Text>
             <Text c="dimmed" size="sm">
-              Position: {item.position} • Mass: {item.mass}
+              Priority: {item.priority} • Due date: {item.dueDate}
             </Text>
           </div>
         </div>
