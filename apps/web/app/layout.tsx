@@ -53,11 +53,11 @@ export default function RootLayout({
         suppressHydrationWarning>
           {/* https://github.com/vercel/next.js/discussions/22388#discussioncomment-6992884 */}
 
-        <React.StrictMode>
+        {/* <React.StrictMode> */}
           <MantineProvider theme={theme} defaultColorScheme="dark">
             <ResponsiveSizesAppShell>{children}</ResponsiveSizesAppShell>
           </MantineProvider>
-        </React.StrictMode>
+        {/* </React.StrictMode> */}
       </body>
     </html>
   );
