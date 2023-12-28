@@ -185,8 +185,11 @@ export default function DiscoveryDashboard() {
   return (
     <>
     lol
+    <div style={{height: 600}}>
+
       <MyResponsiveRadar data={radarData}>
       </MyResponsiveRadar>
+      </div>
       {/* <ListDnd></ListDnd> */}
 
       <h2>Discovery tools - Opp card</h2>
@@ -447,7 +450,9 @@ import { ResponsiveRadar } from '@nivo/radar'
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const MyResponsiveRadar = ({ data /* see data tab */ }) => (
+export const MyResponsiveRadar = ({ data /* see data tab */ }) => (
+  <>
+  only legends
     <ResponsiveRadar
         data={data}
         keys={[ 'chardonay', 'carmenere', 'syrah' ]}
@@ -484,6 +489,7 @@ const MyResponsiveRadar = ({ data /* see data tab */ }) => (
             }
         ]}
     />
+    </>
 )
 
 
