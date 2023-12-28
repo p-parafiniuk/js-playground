@@ -18,9 +18,8 @@ const data = [
 
 export function ListDnd() {
   const [state, handlers] = useListState(data);
-  console.log('state', state)
 
-// const progressSectionsInitial: ProgressWithTooltipsProp[] = [
+  // const progressSectionsInitial: ProgressWithTooltipsProp[] = [
   const progressSectionsInitial = [
     {
       value: state.filter((item) => item.checked).length / state.length * 100,
@@ -29,7 +28,7 @@ export function ListDnd() {
       tooltipLabel: '',
     },
   ]
-    const [progressSections, setProgressSections] = React.useState(progressSectionsInitial)
+  const [progressSections, setProgressSections] = React.useState(progressSectionsInitial)
 
   const allChecked = state.every((value) => value.checked);
   const indeterminate = state.some((value) => value.checked) && !allChecked;
@@ -49,10 +48,24 @@ export function ListDnd() {
             size="md"
             key={item.name}
             checked={item.checked}
-            onChange={(event) => { 
-              handlers.setItemProp(index, 'checked', event.currentTarget.checked); 
-              setProgressSections(progressSections)
-            }}
+            onChange={(event) => {
+              handlers.setItemProp(index, 'checked', event.currentTarget.checked);
+              console.log('state', state)
+
+              setTimeout(() => {  
+                console.log('state', state)
+
+                setProgressSections([{
+                color: 'green',
+                label: '',
+                tooltipLabel: '',
+
+                // ...progressSections[0],
+                value: state.filter((item) => item.checked).length / state.length * 100
+              }])
+            }, 0);
+          }}
+          
             label={
               <>
                 {/* {index}.&nbsp; */}
@@ -138,7 +151,7 @@ function ProgressWithTooltips({ progressSections }: ProgressWithTooltipsProps) {
   });
 
   return (
-    <Progress.Root size={24}>
+    <Progress.Root size={24} key={'asd'}>
       {progressSectionsTransform}
     </Progress.Root>
   );
